@@ -174,24 +174,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <img src="/assets/img/3.jpg" class="Baron">
+        <img src="/assets/img/3.jpg" class="Baron" width="300" height="300">
 <h2 id="1-数组初始化"><a href="#1-数组初始化" class="headerlink" title="1.数组初始化"></a>1.数组初始化</h2><p>1.1 静态初次化：指定数组每个元素的值，由系统决定数值长度。<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String[] book=new String[]&#123;&quot;java&quot;,&quot;c++&quot;,&quot;python&quot;&#125;;</div></pre></td></tr></table></figure></p>
 <p>1.2动态初始化话：初始化时指定数组长度，系统自动分配初始值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String[] book=new String[10];</div></pre></td></tr></table></figure></p>
-<h2 id="2-数组变量和数据对象的区别"><a href="#2-数组变量和数据对象的区别" class="headerlink" title="2.数组变量和数据对象的区别"></a>2.数组变量和数据对象的区别</h2><p>2.1先思考以下的代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">person[] per=new person[2];</div><div class="line">//赋值</div><div class="line">per[0]=new person(&quot;小明&quot;,12);</div><div class="line">per[1]=new person(&quot;小红&quot;,22);</div><div class="line">person myperson=per[0];</div><div class="line">//输出myperson的值</div><div class="line">myperson.toString();  //值是什么？</div><div class="line">//改变赋值</div><div class="line">per[0].setName(&quot;张三&quot;);</div><div class="line">//输出myperson的值</div><div class="line">myperson.toString();    //值是什么？</div><div class="line">两次输出是否相等。</div></pre></td></tr></table></figure></p>
-<p>接下来再看一段代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//建立一个int[] 数组并初始化</div><div class="line"> int[] array=&#123;1,2,3,4,5&#125;;</div><div class="line"> int k=array[2];</div><div class="line"> int o=30;</div><div class="line"> array[4]=o;</div><div class="line"> //输出</div><div class="line"> System.out.println(&quot;k=&quot;+k+&quot; o=&quot;+o+&quot; array=&quot;+Arrays.toString(array));</div><div class="line"> //改变赋值</div><div class="line"> array[2]=20;</div><div class="line"> System.out.println(&quot;k=&quot;+k); //K的值是什么 改变了吗</div><div class="line">//改变赋值</div><div class="line"> o=40;</div><div class="line"> System.out.println(&quot;array[4]=&quot;+array[4]); //array[4]是什么 改变了吗</div></pre></td></tr></table></figure></p>
-<p>输出结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">name=小明  age=12</div><div class="line">name=张三  age=12</div><div class="line">k=3 o=30 array=[1, 2, 3, 4, 30]</div><div class="line">k=3</div><div class="line">array[4]=30</div></pre></td></tr></table></figure></p>
-<p>两段代码，刚好可以解析数组变量和数组对象的区别。</p>
-<ul>
-<li>数组变量：其实可以用变量来理解，例如int i 这个i就是个int变量而已。他就像是C语言的指针一样，当作是一个指针，其他本身并没有值。他是一个指引，指向存储这个值的地方的地址。</li>
-<li>数据对象：相当于new 一个空间。数据就是放在这个内存空间里面（堆内存）。<br>但是java程序无法直接处理这个内存空间。要通过数组变量来调用这个空间。</li>
-<li>这就解析了：<ul>
-<li>为什么per[0]的值改变，myperson的值也改变呢？那是因为，myperson跟per[0]所指向的内存空间是一样的，因此内存空间的值改变了，他们所显示的值也都变了。</li>
-<li>那为什么o的变量改变了，而array[4]的值没有变呢？他们内存空间不是一样的吗？这就涉及到基本变量的问题了，在方法声明的变量属于局部变量，保存在栈中，而数据元素则作为数据对象的一部分，保存在栈之中。所有他们的内存空间不一样。因此在赋值过程中，只是赋值，并没有改变他们的指引噢。</li>
-</ul>
-</li>
-</ul>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>  要理解好数组变量和数据对象的关系，联系上基本数据类型来理解。</p>
-
+        
+          <a class="article-more-a" href="/2017/06/16/java基本功16课：（1）数组与内存控制/#more">more >></a>
+        
       
 
       
@@ -251,8 +239,9 @@
       
         <img src="/assets/img/2.jpg" class="Baron">
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p> 竟然搭建了博客，那么就开始do it吧。首先补一下java基础先把。发现自己的基础渣得一批。先立个flag，补基础分为16篇，每一篇都写一个知识板块。</p>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p><a href="/2017/06/16/java基本功16课：（1）数组与内存控制/">1.数组与内存控制</a><br>2.对象与内存控制<br>3.常见的Java 集合的实现细节<br>4.Java 的内存回收<br>5.表达式中的陷阱<br>6.流程控制的陷阱<br>7.面向对象的陷阱<br>8.异常捕捉的陷阱<br>9.线性表<br>10.栈和队列<br>11.树和二叉树<br>12.常用的内部排序<br>13.程序开发<br>14.程序调试<br>15.使用ide工具<br>16.软件测试<br>17.感言</p>
-
+        
+          <a class="article-more-a" href="/2017/06/16/java基本功16课：（0）立flag/#more">more >></a>
+        
       
 
       
@@ -311,9 +300,10 @@
     <div class="article-entry" itemprop="articleBody">
       
         <img src="/assets/img/1.jpg" class="gream">
-<h2 id="理由"><a href="#理由" class="headerlink" title="理由"></a>理由</h2><p>1.在学习编程也有两年了，在这两年里，我接受过很多人的帮忙，真的很感谢他们。在他们的帮助下，我的走少了很多弯路。现在的我，也应该把我掉过的一些坑，一些经验分享出来，希望能帮助更多的人。<br>2.自己本身走的路是java web，在经过接近一年的学习时间，起码是能够独立做出一个项目出来。但最近在复习一些基本知识的时候，发现竟然把一些很基础的知识给遗忘了。不禁让我沉思，最近的自己也许是有些好高骛远了。所以，狠下心来，建立个博客。时刻提醒着自己能够浅下心来学习。不要迷失了方向。</p>
-<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><p>1.这个博客首先是以java为核心，所用的操作系统就是linux了。毕竟上个月，我在参加完海印总决赛后，决心把win系统换成了deepin系统。这样可以让自己彻底地去学习linux（有时候还是对自己不够狠心）。<br>2.最近也在学python3，所以写一写爬虫也是经常的事情了。<br>3.linux的基本操作，我也会写的。毕竟我也是新手。所以有必要记录一下。<br>4.生活随笔，平时的有感而发写得一些文章。</p>
-
+<h2 id="理由"><a href="#理由" class="headerlink" title="理由"></a>理由</h2><p>1.在学习编程也有两年了，在这两年里，我接受过很多人的帮忙，真的很感谢他们。在他们的帮助下，我的走少了很多弯路。现在的我，也应该把我掉过的一些坑，一些经验分享出来，希望能帮助更多的人。<br>2.自己本身走的路是java web，在经过接近一年的学习时间，起码是能够独立做出一个项目出来。但最近在复习一些基本知识的时候，发现竟然把一些很基础的知识给遗忘了。不禁让我沉思，最近的自己也许是有些好高骛远了。所以，狠下心来，建立个博客。时刻提醒着自己能够浅下心来学习。不要迷失了方向。<br>
+        
+          <a class="article-more-a" href="/2017/06/15/建立博客初衷/#more">more >></a>
+        
       
 
       
@@ -435,11 +425,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">java基本功</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">java基本功</a>
               </li>
             
             <div class="clearfix"></div>
