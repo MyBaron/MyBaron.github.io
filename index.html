@@ -154,6 +154,75 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-java基本功16课：（2）对象与内存控制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/17/java基本功16课：（2）对象与内存控制/">java基本功16课：（2）对象与内存控制</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/17/java基本功16课：（2）对象与内存控制/" class="archive-article-date">
+  	<time datetime="2017-06-16T17:56:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-17</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <img src="/assets/img/4.jpg" class="Baron">
+<p>##前言<br>上一节提到了实例变量和实例对象的区别，那么这节就继续深入一下变量以及对象。<br>    主要内容：</p>
+<ul>
+<li>实例变量和类变量</li>
+<li>父，子类实例变量和内存分配机制</li>
+<li>final 的注意事项
+        
+          <a class="article-more-a" href="/2017/06/17/java基本功16课：（2）对象与内存控制/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/17/java基本功16课：（2）对象与内存控制/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-java基本功16课：（1）数组与内存控制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -175,8 +244,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <img src="/assets/img/3.jpg" class="Baron" width="300" height="300">
-<h2 id="1-数组初始化"><a href="#1-数组初始化" class="headerlink" title="1.数组初始化"></a>1.数组初始化</h2><p>1.1 静态初次化：指定数组每个元素的值，由系统决定数值长度。<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String[] book=new String[]&#123;&quot;java&quot;,&quot;c++&quot;,&quot;python&quot;&#125;;</div></pre></td></tr></table></figure></p>
-<p>1.2动态初始化话：初始化时指定数组长度，系统自动分配初始值。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String[] book=new String[10];</div></pre></td></tr></table></figure></p>
+<h2 id="1-数组初始化"><a href="#1-数组初始化" class="headerlink" title="1.数组初始化"></a>1.数组初始化</h2><p>1.1 静态初次化：指定数组每个元素的值，由系统决定数值长度。<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String[] book=<span class="keyword">new</span> String[]&#123;<span class="string">"java"</span>,<span class="string">"c++"</span>,<span class="string">"python"</span>&#125;;</div></pre></td></tr></table></figure></p>
+<p>1.2动态初始化话：初始化时指定数组长度，系统自动分配初始值。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String[] book=<span class="keyword">new</span> String[<span class="number">10</span>];</div></pre></td></tr></table></figure></p>
         
           <a class="article-more-a" href="/2017/06/16/java基本功16课：（1）数组与内存控制/#more">more >></a>
         
