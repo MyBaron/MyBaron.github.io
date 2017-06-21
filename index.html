@@ -154,6 +154,186 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-java基本功16课:(4)Java的内存回收" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/21/java基本功16课:(4)Java的内存回收/">java基本功16课:(4)Java的内存回收</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/21/java基本功16课:(4)Java的内存回收/" class="archive-article-date">
+  	<time datetime="2017-06-21T13:32:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <img src="/assets/img/6.jpg" class="Baron">
+<h3 id="1-一个完整的Java程序运行过程会涉及以下内存区域："><a href="#1-一个完整的Java程序运行过程会涉及以下内存区域：" class="headerlink" title="1.一个完整的Java程序运行过程会涉及以下内存区域："></a>1.一个完整的Java程序运行过程会涉及以下内存区域：</h3><ul>
+<li>寄存器：JVM内部虚拟寄存器，存取速度非常快，程序不可控制。</li>
+<li>栈内存：保存局部变量的值，包括：1.用来保存基本数据类型的值；2.保存类的实例，即堆区对象的引用(指针)。也可以用来保存加载方法时的帧。</li>
+<li>堆内存：用来存放动态产生的数据，比如new出来的对象。注意创建出来的对象只包含属于各自的成员变量，并不包括成员方法。因为同一个类的对象拥有各自的成员变量，存储在各自的堆中，但是他们共享该类的方法，并不是每创建一个对象就把成员方法复制一次。</li>
+<li>常量池：JVM为每个已加载的类型维护一个常量池，常量池就是这个类型用到的常量的一个有序集合。包括直接常量(基本类型，String)和对其他类型、方法、字段的符号引用(1)。池中的数据和数组一样通过索引访问。由于常量池包含了一个类型所有的对其他类型、方法、字段的符号引用，所以常量池在Java的动态链接中起了核心作用。 <blockquote>
+<p>常量池存在于堆中。</p>
+</blockquote>
+</li>
+<li>代码段：用来存放从硬盘上读取的源程序代码。</li>
+<li>数据段：用来存放static定义的静态成员。</li>
+</ul>
+<h3 id="2-栈内存"><a href="#2-栈内存" class="headerlink" title="2.栈内存"></a>2.栈内存</h3><ul>
+<li>在函数中定义的一些基本类型的变量数据和对象的引用变量都在函数的栈内存中分配。 当在一段代码块定义一个变量时，Java在栈中为这个变量分配内存空间，当该变量退出其作用域后，Java会自动释放掉为该变量所分配的内存空间，该内存空间可以立即被另作他用。 </li>
+<li>栈的优势是，存取速度比堆要快，仅次于寄存器，栈数据可以共享。但缺点是，存在栈中的数据大小与生存期必须是确定的，缺乏灵活性。栈中主要存放一些基本类型的变量数据（int, short, long, byte, float, double, boolean, char）和对象句柄(引用)。 </li>
+</ul>
+<h3 id="3-堆内存"><a href="#3-堆内存" class="headerlink" title="3.堆内存"></a>3.堆内存</h3><ul>
+<li>堆是由垃圾回收来负责的，堆的优势是可以动态地分配内存大小，生存期也不必事先告诉编译器，因为它是在运行时动态分配内存的，Java的垃圾收集器会自动收走这些不再使用的数据。但缺点是，由于要在运行时动态分配内存，存取速度较慢。（由JVM 完成）<h4 id="3-1-内存泄漏"><a href="#3-1-内存泄漏" class="headerlink" title="3.1 内存泄漏"></a>3.1 内存泄漏</h4></li>
+<li><p><a href="http://www.jianshu.com/p/39ae619ac60e" target="_blank" rel="external">第一节</a>的时候已经介绍了实例变量和对象的区别。当new 创建一个Java对象的时候，JVM会在堆内存里为该对象创建一块内存空间。如果该对象没有被任何实例变量引用，那么JVM的垃圾回收机制会自动清除这个对象，并回收该对象所占用的这个内存空间。</p>
+<blockquote>
+<p>问题来了，是不是程序员就不需要担心JAVA内存泄露呢？因为完全不用自己手动回收垃圾。</p>
+</blockquote>
+</li>
+<li><p><strong> 这个想法不对哟～</strong>  刚刚提到了回收的前提下是<strong> JVM检测到该对象没有任何变量引用的情况下，才会把该对象回收掉。</strong>因此，如果一直保持引用该对象呢？那么就算该对象在接下来是永远不会被用上，JVM也不会去回收它。如下代码：</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">person</span></span>&#123;</div><div class="line">    String name;</div><div class="line">    <span class="keyword">int</span> age;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">three</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] ages)</span></span>&#123;</div><div class="line"></div><div class="line">       <span class="comment">//先new10个person对象 </span></div><div class="line">       person[] per=<span class="keyword">new</span> person[<span class="number">10</span>];</div><div class="line">       <span class="keyword">int</span> size=per.length;</div><div class="line">       </div><div class="line">       System.out.println(<span class="string">"有"</span>+size+<span class="string">"个person"</span>);  <span class="comment">//有10个person</span></div><div class="line"></div><div class="line">       <span class="comment">//现在只需要9个person对象</span></div><div class="line">       size=per.length-<span class="number">1</span>;</div><div class="line">       System.out.println(<span class="string">"有"</span>+size+<span class="string">"个person"</span>);  <span class="comment">//有9个person</span></div><div class="line"></div><div class="line">      </div><div class="line">        </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>会不会觉得有什么不对，但又说不出来？这就是很容易被忽略的一个细节。你会发现第10个person本应该被回收，但却没有回收。因为person[9]变量引用这个对象。如果在开发中，此类情况经常发生，那么就会造成内存溢出了。<strong> 那应该怎么解决呢?</strong> 只需要在末尾加上<code>per[size]=null</code>就可以了。</p>
+<h4 id="3-2-堆内存引用方式"><a href="#3-2-堆内存引用方式" class="headerlink" title="3.2 堆内存引用方式"></a>3.2 堆内存引用方式</h4><ul>
+<li>1.强引用 2.软引用 3.弱引用 4.虚引用<h5 id="3-2-1-强引用"><a href="#3-2-1-强引用" class="headerlink" title="3.2.1. 强引用"></a>3.2.1. 强引用</h5></li>
+<li>最常见的引用方式，程序创建一个对象，并把这个对象赋给一个引用变量，这个引用变量就是强引用。</li>
+<li>被强引用的对象，绝对不会被垃圾回收机制回收，即使系统内存非常紧张。<h5 id="3-2-2-软引用"><a href="#3-2-2-软引用" class="headerlink" title="3.2.2 软引用"></a>3.2.2 软引用</h5></li>
+<li>软引用通过SoftReference类来实现，被弱引用的对象，在系统内存空间充足的时候，跟强引用没什么区别。当系统内存空间不足的时候，有可能会被系统回收。</li>
+<li>创建弱引用<code>SoftReference&lt;person&gt;[] Softper=new SoftReference[10]; Softper[0]=new person();</code><h5 id="3-2-3-弱引用"><a href="#3-2-3-弱引用" class="headerlink" title="3.2.3 弱引用"></a>3.2.3 弱引用</h5></li>
+<li>弱引用通过WeakReference类来实现。</li>
+<li>弱引用与软引用的区别在于：只具有弱引用的对象拥有更短暂的生命周期。在垃圾回收器线程扫描它所管辖的内存区域的过程中，一旦发现了只具有弱引用的对象，不管当前内存空间足够与否，都会回收它的内存。不过，由于垃圾回收器是一个优先级很低的线程，因此不一定会很快发现那些只具有弱引用的对象。</li>
+<li>如果这个对象是偶尔的使用，并且希望在使用时随时就能获取到，但又不想影响此对象的垃圾收集，那么你应该用 Weak Reference 来记住此对象。</li>
+<li><code>String str=new String(&quot;abc&quot;);      
+WeakReference&lt;String&gt; abcWeakRef = new WeakReference&lt;String&gt;(str);</code></li>
+<li>弱引用可以和一个引用队列（ReferenceQueue）联合使用，如果弱引用所引用的对象被垃圾回收，Java虚拟机就会把这个弱引用加入到与之关联的引用队列中。<blockquote>
+<p>当你想引用一个对象，但是这个对象有自己的生命周期，你不想介入这个对象的生命周期，这时候你就是用弱引用。<br>这个引用不会在对象的垃圾回收判断中产生任何附加的影响。</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="3-2-4-虚引用"><a href="#3-2-4-虚引用" class="headerlink" title="3.2.4 虚引用"></a>3.2.4 虚引用</h5><ul>
+<li><p>“虚引用”顾名思义，就是形同虚设，与其他几种引用都不同，虚引用并不会决定对象的生命周期。如果一个对象仅持有虚引用，那么它就和没有任何引用一样，在任何时候都可能被垃圾回收器回收。</p>
+<p>  虚引用主要用来跟踪对象被垃圾回收器回收的活动。虚引用与软引用和弱引用的一个区别在于：虚引用必须和引用队列 （ReferenceQueue）联合使用。当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之 关联的引用队列中。</p>
+</li>
+</ul>
+<h5 id="3-2-5-总结"><a href="#3-2-5-总结" class="headerlink" title="3.2.5 总结"></a>3.2.5 总结</h5><table>
+<thead>
+<tr>
+<th style="text-align:right">引用类型</th>
+<th style="text-align:center">被垃圾回收时间</th>
+<th style="text-align:left">用途</th>
+<th>生存时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">强引用</td>
+<td style="text-align:center">从来不会</td>
+<td style="text-align:left">对象的一般状态</td>
+<td>JVM停止运行时终止</td>
+</tr>
+<tr>
+<td style="text-align:right">软引用</td>
+<td style="text-align:center">在内存不足时</td>
+<td style="text-align:left">对象缓存</td>
+<td>内存不足时终止</td>
+</tr>
+<tr>
+<td style="text-align:right">弱引用</td>
+<td style="text-align:center">在垃圾回收时</td>
+<td style="text-align:left">对象缓存</td>
+<td>gc运行后终止</td>
+</tr>
+<tr>
+<td style="text-align:right">虚引用</td>
+<td style="text-align:center">Unknown</td>
+<td style="text-align:left">Unknown</td>
+<td>Unknown</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-3-垃圾回收的基本算法"><a href="#3-3-垃圾回收的基本算法" class="headerlink" title="3.3 垃圾回收的基本算法"></a>3.3 垃圾回收的基本算法</h3><p> 对于一个垃圾回收器的设计算法来说，大概有如下几个设计：</p>
+<ul>
+<li><p>串行回收 和 并行回收</p>
+<ul>
+<li>串行回收：不管系统有多少个 CPU，始终使用一个 CPU 来执行垃圾回收操作</li>
+<li>并行回收：把整个回收工作拆分成多部分，每个部分由一个 CPU 负责，从而让多个 CPU 并行回收</li>
+</ul>
+</li>
+<li><p>并发执行 和 应用程序停止</p>
+</li>
+<li><p>压缩 和 不压缩 和 复制</p>
+<ul>
+<li>复制：将堆内分成两个相同的空间，从根开始访问每一个关联的可达对象，将空间A的可达对象全部复制到空间B，然后一次性回收整个空间A。</li>
+<li>标记清除：也就是不压缩的回收方式。垃圾回收器先从根开始访问所有可达对象，将它们标记为可达状态，然后再遍历一次整个内存区域，把所有没有标记为可达的对象进行回收处理。</li>
+<li>标记压缩：这是压缩方式，这种方式充分利用上述两种算法的优点，垃圾回收器先从根开始访问所有可达对象，将他们标记为可达状态，接下来垃圾回收器会将这些活动对象搬迁在一起，这个过程叫做内存压缩，然后垃圾回收机制再次回收那些不可达对象所占用的内存空间，这样就避免了回收产生的内存碎片。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-4-堆内存的分代回收"><a href="#3-4-堆内存的分代回收" class="headerlink" title="3.4 堆内存的分代回收"></a>3.4 堆内存的分代回收</h3><ul>
+<li>分代的垃圾回收策略，是基于这样一个事实：不同的对象的生命周期是不一样的。因此，不同生命周期的对象可以采取不同的收集方式，以便提高回收效率。</li>
+<li>年轻代:<br>所有新生成的对象首先都是放在年轻代的。年轻代的目标就是尽可能快速的收集掉那些生命周期短的对象。年轻代分三个区。一个Eden区，两个 Survivor区(一般而言)。</li>
+<li>年老代:<br>在年轻代中经历了N次垃圾回收后仍然存活的对象，就会被放到年老代中。因此，可以认为年老代中存放的都是一些生命周期较长的对象。</li>
+<li>持久代:<br>用于存放静态文件，如今Java类、方法等。持久代对垃圾回收没有显著影响，但是有些应用可能动态生成或者调用一些class，例如 Hibernate等，在这种时候需要设置一个比较大的持久代空间来存放这些运行过程中新增的类。</li>
+</ul>
+<h3 id="3-5-内存管理小技巧"><a href="#3-5-内存管理小技巧" class="headerlink" title="3.5 内存管理小技巧"></a>3.5 内存管理小技巧</h3><ul>
+<li>尽量使用直接量</li>
+<li>使用 StringBuilder 和 StringBuffer 进行字符串拼接</li>
+<li>尽早释放无用对象的引用</li>
+<li>尽量少用静态变量</li>
+<li>避免在经常调用的方法、循环中创建 Java 对象</li>
+<li>缓存经常使用的对象(1.使用HashMap。2.直接使用某些开源缓存项目)</li>
+<li>尽量不要使用 finalize 方法(手动调用会增加负担。)</li>
+<li>考虑使用 SoftReference(软引用代替强引用)</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/21/java基本功16课:(4)Java的内存回收/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post- java基本功16课：(3)常见的java集合的实现细节" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
