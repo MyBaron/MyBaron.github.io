@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mybaron.github.io/MyBaron.github.io">
-  <title>java基本功16课：（0）立flag | MyBraon</title>
+  <title>java基本功16课:(2)对象与内存控制 | MyBraon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 竟然搭建了博客，那么就开始do it吧。首先补一下java基础先把。发现自己的基础渣得一批。先立个flag，补基础分为16篇，每一篇都写一个知识板块。">
+  <meta name="description" content="##前言上一节提到了实例变量和实例对象的区别，那么这节就继续深入一下变量以及对象。    主要内容：  实例变量和类变量 父，子类实例变量和内存分配机制 final 的注意事项">
 <meta name="keywords" content="java基本功">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java基本功16课：（0）立flag">
-<meta property="og:url" content="https://mybaron.github.io/MyBaron.github.io/2017/06/16/java基本功16课:(0)立flag/index.html">
+<meta property="og:title" content="java基本功16课:(2)对象与内存控制">
+<meta property="og:url" content="https://mybaron.github.io/MyBaron.github.io/2017/06/17/java基本功16课:（2）对象与内存控制/index.html">
 <meta property="og:site_name" content="MyBraon">
-<meta property="og:description" content="前言 竟然搭建了博客，那么就开始do it吧。首先补一下java基础先把。发现自己的基础渣得一批。先立个flag，补基础分为16篇，每一篇都写一个知识板块。">
-<meta property="og:image" content="https://mybaron.github.io/assets/img/2.jpg">
-<meta property="og:updated_time" content="2017-06-21T13:37:58.727Z">
+<meta property="og:description" content="##前言上一节提到了实例变量和实例对象的区别，那么这节就继续深入一下变量以及对象。    主要内容：  实例变量和类变量 父，子类实例变量和内存分配机制 final 的注意事项">
+<meta property="og:image" content="https://mybaron.github.io/assets/img/4.jpg">
+<meta property="og:updated_time" content="2017-06-21T13:38:17.304Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java基本功16课：（0）立flag">
-<meta name="twitter:description" content="前言 竟然搭建了博客，那么就开始do it吧。首先补一下java基础先把。发现自己的基础渣得一批。先立个flag，补基础分为16篇，每一篇都写一个知识板块。">
-<meta name="twitter:image" content="https://mybaron.github.io/assets/img/2.jpg">
+<meta name="twitter:title" content="java基本功16课:(2)对象与内存控制">
+<meta name="twitter:description" content="##前言上一节提到了实例变量和实例对象的区别，那么这节就继续深入一下变量以及对象。    主要内容：  实例变量和类变量 父，子类实例变量和内存分配机制 final 的注意事项">
+<meta name="twitter:image" content="https://mybaron.github.io/assets/img/4.jpg">
   
     <link rel="alternative" href="/atom.xml" title="MyBraon" type="application/atom+xml">
   
@@ -156,30 +156,100 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-java基本功16课:(0)立flag" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-java基本功16课:（2）对象与内存控制" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      java基本功16课：（0）立flag
+      java基本功16课:(2)对象与内存控制
     </h1>
   
 
         
-        <a href="/2017/06/16/java基本功16课:(0)立flag/" class="archive-article-date">
-  	<time datetime="2017-06-16T03:12:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-16</time>
+        <a href="/2017/06/17/java基本功16课:（2）对象与内存控制/" class="archive-article-date">
+  	<time datetime="2017-06-16T17:56:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <img src="/assets/img/2.jpg" class="Baron">
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p> 竟然搭建了博客，那么就开始do it吧。首先补一下java基础先把。发现自己的基础渣得一批。先立个flag，补基础分为16篇，每一篇都写一个知识板块。</p>
-<a id="more"></a>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p><a href="/2017/06/16/java基本功16课:(1">1.数组与内存控制</a>数组与内存控制/)<br><a href="/2017/06/17/java基本功16课:(2">2.对象与内存控制</a>对象与内存控制/)<br><a href="/2017/06/20/java基本功16课:(3">3.常见的Java 集合的实现细节</a>常见的java集合的实现细节/)<br><a href="/2017/06/21/java基本功16课:(4">4.Java 的内存回收</a>Java的内存回收/)<br>5.表达式中的陷阱<br>6.流程控制的陷阱<br>7.面向对象的陷阱<br>8.异常捕捉的陷阱<br>9.线性表<br>10.栈和队列<br>11.树和二叉树<br>12.常用的内部排序<br>13.程序开发<br>14.程序调试<br>15.使用ide工具<br>16.软件测试<br>17.感言</p>
+        <img src="/assets/img/4.jpg" class="Baron">
+<p>##前言<br>上一节提到了实例变量和实例对象的区别，那么这节就继续深入一下变量以及对象。<br>    主要内容：</p>
+<ul>
+<li>实例变量和类变量</li>
+<li>父，子类实例变量和内存分配机制</li>
+<li>final 的注意事项<a id="more"></a>
+<h2 id="1-实例变量和类变量"><a href="#1-实例变量和类变量" class="headerlink" title="1. 实例变量和类变量"></a>1. 实例变量和类变量</h2>1.1 定义<ul>
+<li>实例变量：在类里面没有使用static修饰的变量，例如:int i；也称为非静态变量</li>
+<li>类变量：在类里面使用了static修饰的变量，例如:static int i; 也称为静态变量</li>
+</ul>
+</li>
+</ul>
+<p>1.2 区别</p>
+<ul>
+<li>首先在同一个JVM内每个类对应一个Class对象，也就是说，只会给该类划分一次内存空间，因此类变量才会只有一次初始化。相对于实例变量，当每次建立对象（实例），都会划分一块新的内存空间。<br>   所以，所有的该类的实例对象，都是共用一个类变量。</li>
+</ul>
+<p>1.3 初始化</p>
+<ul>
+<li>首先看一段代码</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">test</span></span>&#123;</div><div class="line">    <span class="comment">//1.weight 初始化的值是多小</span></div><div class="line">    <span class="keyword">double</span> weight=<span class="number">2.3</span>;</div><div class="line">    &#123;</div><div class="line">        weight=<span class="number">4.3</span>;</div><div class="line">    &#125;   </div><div class="line">    test()&#123;</div><div class="line">        <span class="keyword">this</span>.weight=<span class="number">4.6</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">// 2.向前引用(为什么)</span></div><div class="line">    <span class="keyword">int</span> num1=num2+<span class="number">2</span>;</div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span> num2=<span class="number">4</span>;</div><div class="line">    </div><div class="line"></div><div class="line">    <span class="comment">// 3.请说出name 初始化的值应该是什么</span></div><div class="line">    <span class="keyword">static</span>&#123;</div><div class="line">        name=<span class="string">"我爱java"</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">static</span> String name=<span class="string">"给我丶鼓励"</span>;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>有答案了吗？有疑问吗？<ul>
+<li>首先得把该类的初始化过程理解清楚。第一步是建立划分一个类对象的内存空间，然后把变量初始化（优先是把类变量给初始化，然后再到实例变量初始化）。第二步，再对变量进行赋值，在赋值的过程中，是按照代码顺序由上往下赋值的。</li>
+<li>在了解完类初始化过程之后，第一个问题weight=4.6就很显然了。但是有趣的事，在编译的时候，是可以看到，其实编辑器是把weight=2.3,和非静态代码块放在构造方法里面了。顺序是由上往下排，所以结果还是4.6而已。</li>
+<li>为什么可以向前引用呢？那是因为在类初始化的时候，类变量是优先与实例变量初始化的，所以才可以向前引用。</li>
+<li>name=“给我丶鼓励”，为什么呢？因为这里就很好地解释了初始化其实是两步。变量先初始化默认的值，例如int 是0，然后再把变量给赋值。所以name=null，然后name=”我爱java”，然后name=”给我丶鼓励”。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-父，子类实例变量和内存分配机制"><a href="#2-父，子类实例变量和内存分配机制" class="headerlink" title="2. 父，子类实例变量和内存分配机制"></a>2. 父，子类实例变量和内存分配机制</h2><p>2.1  继承的初始化</p>
+<ul>
+<li>先看代码</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">father</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> age=<span class="number">44</span>;</div><div class="line"></div><div class="line">   <span class="comment">//构造方法</span></div><div class="line">    father()&#123;</div><div class="line">        System.out.println(<span class="string">"父类的构造输出"</span>+<span class="keyword">this</span>.age);</div><div class="line">        <span class="keyword">this</span>.say();</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">say</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"父类的say"</span>+<span class="keyword">this</span>.age);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">son</span> <span class="keyword">extends</span> <span class="title">father</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> age=<span class="number">33</span>;</div><div class="line">   <span class="comment">//构造方法</span></div><div class="line">    son()&#123;</div><div class="line">      System.out.println(<span class="string">"子类构造方法"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">say</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"子类的say："</span>+<span class="keyword">this</span>.age);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">second</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] ages)</span></span>&#123;</div><div class="line">       son myson=<span class="keyword">new</span> son();</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>你觉得会输出什么？</li>
+<li><p>答案是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">父类的构造输出44</div><div class="line">子类的say：0</div><div class="line">子类构造方法</div></pre></td></tr></table></figure>
+<ul>
+<li>为什么同一个this。第一行输出的是父类的44而第二行是子类的方法，而且是0呢？ 这个首先涉及继承的初始化问题，以及继承变量的方法和变量的区别了。<ul>
+<li>首先在初始化的时候，是优先把父类给初始化，因为在子类构造函数中，是先调用super()方法，此方法是把父类初始化。所以是整个初始化过程是 fater-&gt;son。所以首先输出的是：父类的构造方法输出44； </li>
+<li>为什么第二句是子类的say:0呢？<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"因为子类son把父类的say()重写了，因此，当调用的时候，是调用子类的say()的。"</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>恩～其实这个说话不正确的。首先需要理解这个this是谁。其实这个this是son。不信？</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">System.out.println(<span class="keyword">this</span>.getClass());</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>输出结果是：class son 。<br>所以，this.say()调用的自然是son的say()方法了。<br>那为什么输出是0呢？<br>因为值此时赋值只是到父类，子类的age还没赋值，还是初始值0呢。</p>
+<p>2.2 继承的变量和方法的区别以及内存控制</p>
+<ul>
+<li>一句话，变量没有重写，方法有重写。<ul>
+<li>用起来有什么区别呢？ 还是刚刚的son类和fater类:<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"> son myson=<span class="keyword">new</span> son();</div><div class="line"> father myfather=myson;</div><div class="line"></div><div class="line"> System.out.println(myson.age);</div><div class="line"> myson.say();</div><div class="line"> System.out.println(myfather.age);</div><div class="line"> myfather.say(); </div><div class="line"><span class="comment">//将会输出什么</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">33</span></div><div class="line">子类的say：<span class="number">33</span></div><div class="line"><span class="number">44</span></div><div class="line">子类的say：<span class="number">33</span></div></pre></td></tr></table></figure>
+<ul>
+<li>为什么？因为，变量没有重写，方法有重写。所以父类还是可以调用自己的变量，而方法是调用子类的方法。</li>
+</ul>
+<ul>
+<li><p>细心的同学注意到，为什么</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">father myfather=myson</div></pre></td></tr></table></figure>
+<p>明明是new 子类,但却可以输出父类的age呢？</p>
+<ul>
+<li>那是因为在建立子类对象的时候，在划分地址的时候，也有一块内存地址是存父类的变量，因此。子类中的super()，也是可以调用父类的变量的值。（可以试试噢~）</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-final-的注意事项"><a href="#3-final-的注意事项" class="headerlink" title="3. final 的注意事项"></a>3. final 的注意事项</h2><p>3.1 final方法不能被重写，只能被程序显式地赋值一次。<br>3.2 final最大作用是”宏替换”<br>3.3 在内部类中的局部变量，需要用final。</p>
 
       
 
@@ -275,7 +345,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://mybaron.github.io/MyBaron.github.io/2017/06/16/java基本功16课:(0)立flag/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://mybaron.github.io/MyBaron.github.io/2017/06/17/java基本功16课:（2）对象与内存控制/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -289,18 +359,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/06/16/java基本功16课:(1)数组与内存控制/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/06/20/java基本功16课：（3）常见的java集合的实现细节/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          java基本功16课:(1)数组与内存控制
+          java基本功16课：(3)常见的java集合的实现细节
         
       </div>
     </a>
   
   
-    <a href="/2017/06/15/建立博客初衷/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">建立博客初衷</div>
+    <a href="/2017/06/16/java基本功16课:（1）数组与内存控制/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java基本功16课:(1)数组与内存控制</div>
       <i class="icon-circle-right"></i>
     </a>
   
