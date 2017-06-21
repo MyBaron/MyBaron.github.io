@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mybaron.github.io/MyBaron.github.io">
-  <title>java基本功16课：（0）立flag | MyBraon</title>
+  <title>java基本功16课:(1)数组与内存控制 | MyBraon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 竟然搭建了博客，那么就开始do it吧。首先补一下java基础先把。发现自己的基础渣得一批。先立个flag，补基础分为16篇，每一篇都写一个知识板块。">
+  <meta name="description" content="1.数组初始化1.1 静态初次化：指定数组每个元素的值，由系统决定数值长度。 1String[] book=new String[]&amp;#123;&quot;java&quot;,&quot;c++&quot;,&quot;python&quot;&amp;#125;; 1.2动态初始化话：初始化时指定数组长度，系统自动分配初始值。1String[] book=new String[10];">
 <meta name="keywords" content="java基本功">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java基本功16课：（0）立flag">
-<meta property="og:url" content="https://mybaron.github.io/MyBaron.github.io/2017/06/16/java基本功16课：（0）立flag/index.html">
+<meta property="og:title" content="java基本功16课:(1)数组与内存控制">
+<meta property="og:url" content="https://mybaron.github.io/MyBaron.github.io/2017/06/16/java基本功16课:(1)数组与内存控制/index.html">
 <meta property="og:site_name" content="MyBraon">
-<meta property="og:description" content="前言 竟然搭建了博客，那么就开始do it吧。首先补一下java基础先把。发现自己的基础渣得一批。先立个flag，补基础分为16篇，每一篇都写一个知识板块。">
-<meta property="og:image" content="https://mybaron.github.io/assets/img/2.jpg">
-<meta property="og:updated_time" content="2017-06-16T09:16:20.489Z">
+<meta property="og:description" content="1.数组初始化1.1 静态初次化：指定数组每个元素的值，由系统决定数值长度。 1String[] book=new String[]&amp;#123;&quot;java&quot;,&quot;c++&quot;,&quot;python&quot;&amp;#125;; 1.2动态初始化话：初始化时指定数组长度，系统自动分配初始值。1String[] book=new String[10];">
+<meta property="og:image" content="https://mybaron.github.io/assets/img/3.jpg">
+<meta property="og:updated_time" content="2017-06-21T13:38:07.735Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java基本功16课：（0）立flag">
-<meta name="twitter:description" content="前言 竟然搭建了博客，那么就开始do it吧。首先补一下java基础先把。发现自己的基础渣得一批。先立个flag，补基础分为16篇，每一篇都写一个知识板块。">
-<meta name="twitter:image" content="https://mybaron.github.io/assets/img/2.jpg">
+<meta name="twitter:title" content="java基本功16课:(1)数组与内存控制">
+<meta name="twitter:description" content="1.数组初始化1.1 静态初次化：指定数组每个元素的值，由系统决定数值长度。 1String[] book=new String[]&amp;#123;&quot;java&quot;,&quot;c++&quot;,&quot;python&quot;&amp;#125;; 1.2动态初始化话：初始化时指定数组长度，系统自动分配初始值。1String[] book=new String[10];">
+<meta name="twitter:image" content="https://mybaron.github.io/assets/img/3.jpg">
   
     <link rel="alternative" href="/atom.xml" title="MyBraon" type="application/atom+xml">
   
@@ -156,30 +156,45 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-java基本功16课：（0）立flag" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-java基本功16课:(1)数组与内存控制" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      java基本功16课：（0）立flag
+      java基本功16课:(1)数组与内存控制
     </h1>
   
 
         
-        <a href="/2017/06/16/java基本功16课：（0）立flag/" class="archive-article-date">
-  	<time datetime="2017-06-16T03:12:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-16</time>
+        <a href="/2017/06/16/java基本功16课:(1)数组与内存控制/" class="archive-article-date">
+  	<time datetime="2017-06-16T09:00:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <img src="/assets/img/2.jpg" class="Baron">
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p> 竟然搭建了博客，那么就开始do it吧。首先补一下java基础先把。发现自己的基础渣得一批。先立个flag，补基础分为16篇，每一篇都写一个知识板块。</p>
+        <img src="/assets/img/3.jpg" class="Baron" width="300" height="300">
+<h2 id="1-数组初始化"><a href="#1-数组初始化" class="headerlink" title="1.数组初始化"></a>1.数组初始化</h2><p>1.1 静态初次化：指定数组每个元素的值，由系统决定数值长度。<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String[] book=<span class="keyword">new</span> String[]&#123;<span class="string">"java"</span>,<span class="string">"c++"</span>,<span class="string">"python"</span>&#125;;</div></pre></td></tr></table></figure></p>
+<p>1.2动态初始化话：初始化时指定数组长度，系统自动分配初始值。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String[] book=<span class="keyword">new</span> String[<span class="number">10</span>];</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
-<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p><a href="/2017/06/16/java基本功16课：（1）数组与内存控制/">1.数组与内存控制</a><br>2.对象与内存控制<br>3.常见的Java 集合的实现细节<br>4.Java 的内存回收<br>5.表达式中的陷阱<br>6.流程控制的陷阱<br>7.面向对象的陷阱<br>8.异常捕捉的陷阱<br>9.线性表<br>10.栈和队列<br>11.树和二叉树<br>12.常用的内部排序<br>13.程序开发<br>14.程序调试<br>15.使用ide工具<br>16.软件测试<br>17.感言</p>
+<h2 id="2-数组变量和数据对象的区别"><a href="#2-数组变量和数据对象的区别" class="headerlink" title="2.数组变量和数据对象的区别"></a>2.数组变量和数据对象的区别</h2><p>2.1先思考以下的代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">person[] per=<span class="keyword">new</span> person[<span class="number">2</span>];</div><div class="line"><span class="comment">//赋值</span></div><div class="line">per[<span class="number">0</span>]=<span class="keyword">new</span> person(<span class="string">"小明"</span>,<span class="number">12</span>);</div><div class="line">per[<span class="number">1</span>]=<span class="keyword">new</span> person(<span class="string">"小红"</span>,<span class="number">22</span>);</div><div class="line">person myperson=per[<span class="number">0</span>];</div><div class="line"><span class="comment">//输出myperson的值</span></div><div class="line">myperson.toString();  <span class="comment">//值是什么？</span></div><div class="line"><span class="comment">//改变赋值</span></div><div class="line">per[<span class="number">0</span>].setName(<span class="string">"张三"</span>);</div><div class="line"><span class="comment">//输出myperson的值</span></div><div class="line">myperson.toString();    <span class="comment">//值是什么？</span></div><div class="line">两次输出是否相等。</div></pre></td></tr></table></figure></p>
+<p>接下来再看一段代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//建立一个int[] 数组并初始化</span></div><div class="line"> <span class="keyword">int</span>[] array=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</div><div class="line"> <span class="keyword">int</span> k=array[<span class="number">2</span>];</div><div class="line"> <span class="keyword">int</span> o=<span class="number">30</span>;</div><div class="line"> array[<span class="number">4</span>]=o;</div><div class="line"> <span class="comment">//输出</span></div><div class="line"> System.out.println(<span class="string">"k="</span>+k+<span class="string">" o="</span>+o+<span class="string">" array="</span>+Arrays.toString(array));</div><div class="line"> <span class="comment">//改变赋值</span></div><div class="line"> array[<span class="number">2</span>]=<span class="number">20</span>;</div><div class="line"> System.out.println(<span class="string">"k="</span>+k); <span class="comment">//K的值是什么 改变了吗</span></div><div class="line"><span class="comment">//改变赋值</span></div><div class="line"> o=<span class="number">40</span>;</div><div class="line"> System.out.println(<span class="string">"array[4]="</span>+array[<span class="number">4</span>]); <span class="comment">//array[4]是什么 改变了吗</span></div></pre></td></tr></table></figure>
+<p>输出结果<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">name=小明  age=<span class="number">12</span></div><div class="line">name=张三  age=<span class="number">12</span></div><div class="line">k=<span class="number">3</span> o=<span class="number">30</span> array=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">30</span>]</div><div class="line">k=<span class="number">3</span></div><div class="line">array[<span class="number">4</span>]=<span class="number">30</span></div></pre></td></tr></table></figure></p>
+<p>两段代码，刚好可以解析数组变量和数组对象的区别。</p>
+<ul>
+<li>数组变量：其实可以用变量来理解，例如int i 这个i就是个int变量而已。他就像是C语言的指针一样，当作是一个指针，其他本身并没有值。他是一个指引，指向存储这个值的地方的地址。</li>
+<li>数据对象：相当于new 一个空间。数据就是放在这个内存空间里面（堆内存）。<br>但是java程序无法直接处理这个内存空间。要通过数组变量来调用这个空间。</li>
+<li>这就解析了：<ul>
+<li>为什么per[0]的值改变，myperson的值也改变呢？那是因为，myperson跟per[0]所指向的内存空间是一样的，因此内存空间的值改变了，他们所显示的值也都变了。</li>
+<li>那为什么o的变量改变了，而array[4]的值没有变呢？他们内存空间不是一样的吗？这就涉及到基本变量的问题了，在方法声明的变量属于局部变量，保存在栈中，而数据元素则作为数据对象的一部分，保存在栈之中。所有他们的内存空间不一样。因此在赋值过程中，只是赋值，并没有改变他们的指引噢。</li>
+</ul>
+</li>
+</ul>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>  要理解好数组变量和数据对象的关系，联系上基本数据类型来理解。</p>
 
       
 
@@ -275,7 +290,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://mybaron.github.io/MyBaron.github.io/2017/06/16/java基本功16课：（0）立flag/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://mybaron.github.io/MyBaron.github.io/2017/06/16/java基本功16课:(1)数组与内存控制/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -289,18 +304,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/06/16/java基本功16课：（1）数组与内存控制/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/06/17/java基本功16课:(2)对象与内存控制/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          java基本功16课：（1）数组与内存控制
+          java基本功16课:(2)对象与内存控制
         
       </div>
     </a>
   
   
-    <a href="/2017/06/15/建立博客初衷/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">建立博客初衷</div>
+    <a href="/2017/06/16/java基本功16课:(0)立flag/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java基本功16课：（0）立flag</div>
       <i class="icon-circle-right"></i>
     </a>
   
