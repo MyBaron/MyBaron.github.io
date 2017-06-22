@@ -154,6 +154,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-3步完成java反编译" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/23/3步完成java反编译/">3步完成java反编译</a>
+    </h1>
+  
+
+        
+        <a href="/2017/06/23/3步完成java反编译/" class="archive-article-date">
+  	<time datetime="2017-06-22T18:02:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <img src="/assets/img/8.jpg" class="Baron">
+<h4 id="有些东西不去做，永远都不会。"><a href="#有些东西不去做，永远都不会。" class="headerlink" title="有些东西不去做，永远都不会。"></a>有些东西不去做，永远都不会。</h4><h4 id="其实反编译真的很有用，可以看到你的代码在是如何被编辑器理解的。平时可以通过反编译去学习代码规范，使代码更简洁。"><a href="#其实反编译真的很有用，可以看到你的代码在是如何被编辑器理解的。平时可以通过反编译去学习代码规范，使代码更简洁。" class="headerlink" title="其实反编译真的很有用，可以看到你的代码在是如何被编辑器理解的。平时可以通过反编译去学习代码规范，使代码更简洁。"></a>其实反编译真的很有用，可以看到你的代码在是如何被编辑器理解的。平时可以通过反编译去学习代码规范，使代码更简洁。</h4>
+        
+          <a class="article-more-a" href="/2017/06/23/3步完成java反编译/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/23/3步完成java反编译/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-java基本功16课：（5）表达式中的陷阱" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -175,6 +240,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <img src="/assets/img/7.jpg" class="Baron">
+<h2 id="1-字符串陷阱"><a href="#1-字符串陷阱" class="headerlink" title="1.字符串陷阱"></a>1.字符串陷阱</h2><h4 id="1-1-java创建对象的常见方式如下："><a href="#1-1-java创建对象的常见方式如下：" class="headerlink" title="1.1 java创建对象的常见方式如下："></a>1.1 java创建对象的常见方式如下：</h4><ul>
+<li>通过new调用构造器创建Java对象。</li>
+<li>通过Class对象的newInstance()方法调用构造器创建Java对象。</li>
+<li>通过Java的反序列化机制从IO流中恢复Java对象。<blockquote>
+<p>使用Java对象序列化，在保存对象时，会把其状态保存为一组字节，在未来，再将这些字节组装成对象。必须注意地是，对象序列化保存的是对象的”状态”，即它的成员变量。由此可知，<strong> 对象序列化不会关注类中的静态变量</strong>。</p>
+</blockquote>
+</li>
+<li>通过Java对象提供的clone()方法复制一个新的Java对象。</li>
+<li>对于字符串以及Byte,Short,Integer,Long,Character,Float,Double和Boolean这些基本类型的包装类。</li>
+<li>直接量的方式创建java对象.<code>String str=&quot;abc&quot;;</code></li>
+<li>通过简单的算法表达式，连接运算来创建Java对象。<code>String str2=&quot;abc&quot;+&quot;ddd&quot;;</code>
         
           <a class="article-more-a" href="/2017/06/23/java基本功16课：（5）表达式中的陷阱/#more">more >></a>
         
@@ -264,7 +340,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功 java</a>
         		</li>
       		
 		</ul>
@@ -332,7 +408,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功 java</a>
         		</li>
       		
 		</ul>
@@ -401,7 +477,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功 java</a>
         		</li>
       		
 		</ul>
@@ -467,7 +543,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功 java</a>
         		</li>
       		
 		</ul>
@@ -717,7 +793,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">java基本功</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">java基本功 java</a>
               </li>
              
               <li class="article-tag-list-item">

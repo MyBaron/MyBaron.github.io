@@ -8,15 +8,18 @@
   <link rel="dns-prefetch" href="https://mybaron.github.io/MyBaron.github.io">
   <title>java基本功16课:（5）表达式中的陷阱 | MyBraon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="java基本功">
+  <meta name="description" content="1.字符串陷阱1.1 java创建对象的常见方式如下： 通过new调用构造器创建Java对象。 通过Class对象的newInstance()方法调用构造器创建Java对象。 通过Java的反序列化机制从IO流中恢复Java对象。 使用Java对象序列化，在保存对象时，会把其状态保存为一组字节，在未来，再将这些字节组装成对象。必须注意地是，对象序列化保存的是对象的”状态”，即它的成员变量。由此可">
+<meta name="keywords" content="java基本功">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java基本功16课:（5）表达式中的陷阱">
 <meta property="og:url" content="https://mybaron.github.io/MyBaron.github.io/2017/06/23/java基本功16课：（5）表达式中的陷阱/index.html">
 <meta property="og:site_name" content="MyBraon">
+<meta property="og:description" content="1.字符串陷阱1.1 java创建对象的常见方式如下： 通过new调用构造器创建Java对象。 通过Class对象的newInstance()方法调用构造器创建Java对象。 通过Java的反序列化机制从IO流中恢复Java对象。 使用Java对象序列化，在保存对象时，会把其状态保存为一组字节，在未来，再将这些字节组装成对象。必须注意地是，对象序列化保存的是对象的”状态”，即它的成员变量。由此可">
 <meta property="og:image" content="https://mybaron.github.io/assets/img/7.jpg">
-<meta property="og:updated_time" content="2017-06-22T17:42:41.613Z">
+<meta property="og:updated_time" content="2017-06-22T17:44:27.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java基本功16课:（5）表达式中的陷阱">
+<meta name="twitter:description" content="1.字符串陷阱1.1 java创建对象的常见方式如下： 通过new调用构造器创建Java对象。 通过Class对象的newInstance()方法调用构造器创建Java对象。 通过Java的反序列化机制从IO流中恢复Java对象。 使用Java对象序列化，在保存对象时，会把其状态保存为一组字节，在未来，再将这些字节组装成对象。必须注意地是，对象序列化保存的是对象的”状态”，即它的成员变量。由此可">
 <meta name="twitter:image" content="https://mybaron.github.io/assets/img/7.jpg">
   
     <link rel="alternative" href="/atom.xml" title="MyBraon" type="application/atom+xml">
@@ -174,7 +177,6 @@
     <div class="article-entry" itemprop="articleBody">
       
         <img src="/assets/img/7.jpg" class="Baron">
-<a id="more"></a>
 <h2 id="1-字符串陷阱"><a href="#1-字符串陷阱" class="headerlink" title="1.字符串陷阱"></a>1.字符串陷阱</h2><h4 id="1-1-java创建对象的常见方式如下："><a href="#1-1-java创建对象的常见方式如下：" class="headerlink" title="1.1 java创建对象的常见方式如下："></a>1.1 java创建对象的常见方式如下：</h4><ul>
 <li>通过new调用构造器创建Java对象。</li>
 <li>通过Class对象的newInstance()方法调用构造器创建Java对象。</li>
@@ -185,9 +187,8 @@
 <li>通过Java对象提供的clone()方法复制一个新的Java对象。</li>
 <li>对于字符串以及Byte,Short,Integer,Long,Character,Float,Double和Boolean这些基本类型的包装类。</li>
 <li>直接量的方式创建java对象.<code>String str=&quot;abc&quot;;</code></li>
-<li>通过简单的算法表达式，连接运算来创建Java对象。<code>String str2=&quot;abc&quot;+&quot;ddd&quot;;</code></li>
-</ul>
-<h4 id="1-2-JVM对字符串的处理"><a href="#1-2-JVM对字符串的处理" class="headerlink" title="1.2 JVM对字符串的处理"></a>1.2 JVM对字符串的处理</h4><ul>
+<li>通过简单的算法表达式，连接运算来创建Java对象。<code>String str2=&quot;abc&quot;+&quot;ddd&quot;;</code><a id="more"></a>
+<h4 id="1-2-JVM对字符串的处理"><a href="#1-2-JVM对字符串的处理" class="headerlink" title="1.2 JVM对字符串的处理"></a>1.2 JVM对字符串的处理</h4></li>
 <li><code>String java=new String(&quot;给我丶鼓励&quot;);</code> 该语句实际创建了2个字符串对象，一个是“给我丶鼓励”这个<strong>直接量</strong>对应的字符串对象，一个是由new String()构造器返回的字符串对象。测试代码如下：</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">String java=<span class="keyword">new</span> String(<span class="string">"给我丶鼓励"</span>); </div><div class="line"><span class="comment">//test1</span></div><div class="line">String test1=<span class="string">"给我丶鼓励"</span>;</div><div class="line">System.out.println(test1==java); <span class="comment">//false 一个是在常量区，一个是new出来的内存区   </span></div><div class="line"><span class="comment">//test2</span></div><div class="line">System.out.println(java.intern()==test1); <span class="comment">//true intern()方法是从常量区里返回该对象。</span></div></pre></td></tr></table></figure>
@@ -357,6 +358,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2017/06/23/3步完成java反编译/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          3步完成java反编译
+        
+      </div>
+    </a>
+  
   
     <a href="/2017/06/21/java基本功16课:（4）Java的内存回收/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">java基本功16课:（4）Java的内存回收</div>
@@ -470,7 +480,15 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">java基本功</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">java基本功 java</a>
               </li>
              
               <li class="article-tag-list-item">
