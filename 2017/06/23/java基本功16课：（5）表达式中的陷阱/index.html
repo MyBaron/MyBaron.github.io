@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mybaron.github.io/MyBaron.github.io">
-  <title>Tag: 随笔 | MyBraon</title>
+  <title>java基本功16课:（5）表达式中的陷阱 | MyBraon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="喜爱是我坚持的唯一动力">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MyBraon">
-<meta property="og:url" content="https://mybaron.github.io/MyBaron.github.io/tags/随笔/index.html">
+  <meta name="description" content="1.字符串陷阱1.1 java创建对象的常见方式如下： 通过new调用构造器创建Java对象。 通过Class对象的newInstance()方法调用构造器创建Java对象。 通过Java的反序列化机制从IO流中恢复Java对象。 使用Java对象序列化，在保存对象时，会把其状态保存为一组字节，在未来，再将这些字节组装成对象。必须注意地是，对象序列化保存的是对象的”状态”，即它的成员变量。由此可">
+<meta name="keywords" content="java基本功,java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java基本功16课:（5）表达式中的陷阱">
+<meta property="og:url" content="https://mybaron.github.io/MyBaron.github.io/2017/06/23/java基本功16课：（5）表达式中的陷阱/index.html">
 <meta property="og:site_name" content="MyBraon">
-<meta property="og:description" content="喜爱是我坚持的唯一动力">
+<meta property="og:description" content="1.字符串陷阱1.1 java创建对象的常见方式如下： 通过new调用构造器创建Java对象。 通过Class对象的newInstance()方法调用构造器创建Java对象。 通过Java的反序列化机制从IO流中恢复Java对象。 使用Java对象序列化，在保存对象时，会把其状态保存为一组字节，在未来，再将这些字节组装成对象。必须注意地是，对象序列化保存的是对象的”状态”，即它的成员变量。由此可">
+<meta property="og:image" content="https://mybaron.github.io/assets/img/7.jpg">
+<meta property="og:updated_time" content="2017-06-22T18:22:40.928Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MyBraon">
-<meta name="twitter:description" content="喜爱是我坚持的唯一动力">
+<meta name="twitter:title" content="java基本功16课:（5）表达式中的陷阱">
+<meta name="twitter:description" content="1.字符串陷阱1.1 java创建对象的常见方式如下： 通过new调用构造器创建Java对象。 通过Class对象的newInstance()方法调用构造器创建Java对象。 通过Java的反序列化机制从IO流中恢复Java对象。 使用Java对象序列化，在保存对象时，会把其状态保存为一组字节，在未来，再将这些字节组装成对象。必须注意地是，对象序列化保存的是对象的”状态”，即它的成员变量。由此可">
+<meta name="twitter:image" content="https://mybaron.github.io/assets/img/7.jpg">
   
     <link rel="alternative" href="/atom.xml" title="MyBraon" type="application/atom+xml">
   
@@ -152,60 +156,243 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-java基本功16课：（5）表达式中的陷阱" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/15/建立博客初衷/" class="archive-article-date">
-  	<time datetime="2017-06-15T15:33:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/15/建立博客初衷/">建立博客初衷</a>
+    <h1 class="article-title" itemprop="name">
+      java基本功16课:（5）表达式中的陷阱
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2017/06/23/java基本功16课：（5）表达式中的陷阱/" class="archive-article-date">
+  	<time datetime="2017-06-22T17:40:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <img src="/assets/img/7.jpg" class="Baron">
+<h2 id="1-字符串陷阱"><a href="#1-字符串陷阱" class="headerlink" title="1.字符串陷阱"></a>1.字符串陷阱</h2><h4 id="1-1-java创建对象的常见方式如下："><a href="#1-1-java创建对象的常见方式如下：" class="headerlink" title="1.1 java创建对象的常见方式如下："></a>1.1 java创建对象的常见方式如下：</h4><ul>
+<li>通过new调用构造器创建Java对象。</li>
+<li>通过Class对象的newInstance()方法调用构造器创建Java对象。</li>
+<li>通过Java的反序列化机制从IO流中恢复Java对象。<blockquote>
+<p>使用Java对象序列化，在保存对象时，会把其状态保存为一组字节，在未来，再将这些字节组装成对象。必须注意地是，对象序列化保存的是对象的”状态”，即它的成员变量。由此可知，<strong> 对象序列化不会关注类中的静态变量</strong>。</p>
+</blockquote>
+</li>
+<li>通过Java对象提供的clone()方法复制一个新的Java对象。</li>
+<li>对于字符串以及Byte,Short,Integer,Long,Character,Float,Double和Boolean这些基本类型的包装类。</li>
+<li>直接量的方式创建java对象.<code>String str=&quot;abc&quot;;</code></li>
+<li>通过简单的算法表达式，连接运算来创建Java对象。<code>String str2=&quot;abc&quot;+&quot;ddd&quot;;</code><a id="more"></a>
+<h4 id="1-2-JVM对字符串的处理"><a href="#1-2-JVM对字符串的处理" class="headerlink" title="1.2 JVM对字符串的处理"></a>1.2 JVM对字符串的处理</h4></li>
+<li><code>String java=new String(&quot;给我丶鼓励&quot;);</code> 该语句实际创建了2个字符串对象，一个是“给我丶鼓励”这个<strong>直接量</strong>对应的字符串对象，一个是由new String()构造器返回的字符串对象。测试代码如下：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">String java=<span class="keyword">new</span> String(<span class="string">"给我丶鼓励"</span>); </div><div class="line"><span class="comment">//test1</span></div><div class="line">String test1=<span class="string">"给我丶鼓励"</span>;</div><div class="line">System.out.println(test1==java); <span class="comment">//false 一个是在常量区，一个是new出来的内存区   </span></div><div class="line"><span class="comment">//test2</span></div><div class="line">System.out.println(java.intern()==test1); <span class="comment">//true intern()方法是从常量区里返回该对象。</span></div></pre></td></tr></table></figure>
+<ul>
+<li>如果字符串连接表达式的值在编译的时候可以确定下来，那么JVM会在编译时计算该字符串变量的值，并让它指向<strong>字符串池</strong>中对应的字符串。也就是说如果一开始，这些算法表达式是字符串直接量、整数直接量，没有变量和方法参与，“宏替换”（使用 final 修饰的变量），那么就可以在编译期就可以确定字符串的值；如果使用了变量、调用了方法，那么只有等到运行时才能确定字符串表达式的值。例子如下：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">  </div><div class="line">String hello=<span class="string">"hello"</span>;</div><div class="line">String java=<span class="string">"java"</span>;</div><div class="line"><span class="keyword">final</span> String str1Final=<span class="string">"java"</span>;</div><div class="line"><span class="keyword">final</span> String str2Final=java;</div><div class="line"></div><div class="line">String str1=<span class="string">"hellojava"</span>;</div><div class="line">String str2=<span class="string">"hello"</span>+<span class="string">"java"</span>;   </div><div class="line">String str3=hello+java;</div><div class="line">String str4=<span class="string">"hello"</span>+str1Final;</div><div class="line">String str5=<span class="string">"hello"</span>+str2Final;</div><div class="line"></div><div class="line"><span class="comment">//test</span></div><div class="line"><span class="comment">//字符串直接量</span></div><div class="line">System.out.println(str1==str2);  <span class="comment">//ture </span></div><div class="line"><span class="comment">//使用了变量</span></div><div class="line">System.out.println(str1==str3);  <span class="comment">//false </span></div><div class="line"><span class="comment">//宏替换</span></div><div class="line">System.out.println(str1==str4);  <span class="comment">//true </span></div><div class="line"><span class="comment">//虽然是final 但不是宏替换</span></div><div class="line">System.out.println(str1==str5);  <span class="comment">//false</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>解释：为什么第二条是false，其实要理解<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">String hello=<span class="string">"hello"</span>;</div><div class="line">String java=<span class="string">"java"</span>;</div><div class="line">String str3=hello+java;</div><div class="line"><span class="comment">//相当于：</span></div><div class="line">String str3=(<span class="keyword">new</span> StringBuilder().append(<span class="string">"hello"</span>).append(<span class="string">"java"</span>).toString());</div></pre></td></tr></table></figure></p>
+<p>因为new了一个新对象，所以比较肯定是false。<br>反编译后代码是这样的<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">String s = <span class="string">"hello"</span>;</div><div class="line">String s1 = <span class="string">"java"</span>;</div><div class="line">String s2 = (<span class="keyword">new</span> StringBuilder()).append(s).append(s1).toString();</div><div class="line">String s3 = (<span class="keyword">new</span> StringBuilder()).append(<span class="string">"hello"</span>).append(<span class="string">"java"</span>).toString();</div></pre></td></tr></table></figure></p>
+<p>为什么第4条也是false呢？因为没有在编译期就确定下来的值，所以这个final不是宏替换，只能当不变的”变量”对待，所以接下来跟第二条原理一样了。</p>
+<ul>
+<li>字符串比较<br>如果要比较两个字符串是否相同，用==进行判断就可以了，但如果要判断两个字符串所含的字符序列是否相同，则应该用String重写过的equals()方法进行比较，代码如下：<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">  <span class="comment">//r如果两个字符串相同，返回true</span></div><div class="line">  <span class="keyword">if</span>(<span class="keyword">this</span>==anObject)&#123;</div><div class="line">      retrun <span class="keyword">true</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//如果anObject是String类型</span></div><div class="line"><span class="keyword">if</span>(anObject <span class="keyword">instanceof</span> String)&#123;</div><div class="line">   String anotherString =(String)anObject;</div><div class="line">   <span class="comment">//n代表当前字符串的长度</span></div><div class="line">   <span class="keyword">int</span> n=count;</div><div class="line">   <span class="comment">//如果两个字符串的长度相等</span></div><div class="line">  <span class="keyword">if</span>(n==anotherString.count)&#123;</div><div class="line">    <span class="comment">//获取当前字符串，anotherString底层封装的字符数组</span></div><div class="line">    <span class="keyword">char</span> v1[]=value;</div><div class="line">    <span class="keyword">char</span> v2[]=anotherString.value;</div><div class="line">   <span class="keyword">int</span> i =offset;</div><div class="line">   <span class="keyword">int</span> j =anotherString.offset;</div><div class="line">   <span class="comment">//逐渐比较v1数组和v2数组里的每个字符</span></div><div class="line">   <span class="keyword">while</span>(n--!=<span class="number">0</span>)&#123;</div><div class="line">    <span class="keyword">if</span>(v1[i++]!=v2[j++])</div><div class="line">       <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div><div class="line">   <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">&#125;</div><div class="line">     <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>String 类还实现了Comparable接口,因此程序还可通过String提供的compareTo()方法来判断两个字符串之间的大小，当两个字符串所包含的字符序列相等时，程序通过compareTo()比较,将返回0.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(String anotherString)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> len1 = value.length;</div><div class="line">        <span class="keyword">int</span> len2 = anotherString.value.length;</div><div class="line">        <span class="keyword">int</span> lim = Math.min(len1, len2);</div><div class="line">        <span class="keyword">char</span> v1[] = value;</div><div class="line">        <span class="keyword">char</span> v2[] = anotherString.value;</div><div class="line">        <span class="keyword">int</span> k = <span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span> (k &lt; lim) &#123;</div><div class="line">            <span class="keyword">char</span> c1 = v1[k];</div><div class="line">            <span class="keyword">char</span> c2 = v2[k];</div><div class="line">            <span class="keyword">if</span> (c1 != c2) &#123;</div><div class="line">                <span class="keyword">return</span> c1 - c2;</div><div class="line">            &#125;</div><div class="line">            k++;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> len1 - len2;</div><div class="line">    &#125;</div></pre></td></tr></table></figure></p>
+<h2 id="2-表达式类型的陷阱"><a href="#2-表达式类型的陷阱" class="headerlink" title="2.表达式类型的陷阱"></a>2.表达式类型的陷阱</h2><h4 id="2-1-表达式类型"><a href="#2-1-表达式类型" class="headerlink" title="2.1 表达式类型"></a>2.1 表达式类型</h4><ul>
+<li><p>所有 byte、short、char类型将被提升到 int 类型参与运算</p>
+</li>
+<li><p>整个算术表达式的数据类型自动提升到与表达式中最高等级操作数同样的类型，操作数的等级排列如下：</p>
+<ul>
+<li><p>char -&gt; int -&gt; long -&gt;float -&gt; double</p>
+</li>
+<li><p>byte -&gt; short -&gt; int -&gt; long -&gt;float -&gt; double</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-2-复合赋值运算符"><a href="#2-2-复合赋值运算符" class="headerlink" title="2.2 复合赋值运算符"></a>2.2 复合赋值运算符</h4><ul>
+<li><p>复合赋值运算符中包含的隐式类型转换，例如</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">a=a+<span class="number">5</span>;</div><div class="line">a+=<span class="number">5</span>; <span class="comment">//实际上等价于 a=(a的类型)(a+5)；</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>复合赋值运算的时候，小心“溢出”，如果”溢出”，会进行高位”截断“。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">  <span class="keyword">short</span> st=<span class="number">5</span>;</div><div class="line">  st+=<span class="number">90010</span>;</div><div class="line">  System.out.println(st); <span class="comment">//将会输出24479</span></div><div class="line"><span class="comment">//此时会"溢出"，因为系统有一个隐式的类型转换，short只能接受-32768~32767之间的整数，所以就会"溢出",因此会进行高位截断。</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>如果把+当成字符串连接运算符使用，则+=运算符左边的变量只能是String类型，而不可能是String的父类型（如Object或CharSequence等）。</p>
+</li>
+</ul>
+<h2 id="3-转义字符的陷阱"><a href="#3-转义字符的陷阱" class="headerlink" title="3.转义字符的陷阱"></a>3.转义字符的陷阱</h2><ul>
+<li>慎用字符的 Unicode 转义形式</li>
+<li>中止行注释的转义字符</li>
+</ul>
+<h2 id="4-泛型可能引起的错误"><a href="#4-泛型可能引起的错误" class="headerlink" title="4.泛型可能引起的错误"></a>4.泛型可能引起的错误</h2><h4 id="4-1原始类型变量的赋值"><a href="#4-1原始类型变量的赋值" class="headerlink" title="4.1原始类型变量的赋值"></a>4.1原始类型变量的赋值</h4><ul>
+<li>当程序把一个原始类型的变量赋给一个带有泛型信息的变量时，总是可以通过编译（只是会提示警告信息）</li>
+<li>当程序试图访问带泛型声明的集合的集合元素时，编译器总是把集合元素当成泛型类型处理（它并不关心集合里集合元素的实际类型）</li>
+<li>当程序试图访问带泛型声明的集合的集合元素时，JVM会遍历每个集合元素自动执行强制转型，如果集合元素的实际类型与集合所带的泛型信息不匹配，运行时将引发 ClassCastException</li>
+</ul>
+<h4 id="4-2原始类型带来的擦除"><a href="#4-2原始类型带来的擦除" class="headerlink" title="4.2原始类型带来的擦除"></a>4.2原始类型带来的擦除</h4><ul>
+<li>当把一个具有泛型信息的对象赋给另一个没有泛型信息的变量时，所有在尖括号之间的类型信息都会丢弃。</li>
+</ul>
+<h4 id="4-3创建泛型数组的陷阱"><a href="#4-3创建泛型数组的陷阱" class="headerlink" title="4.3创建泛型数组的陷阱"></a>4.3创建泛型数组的陷阱</h4><ul>
+<li>Java 中不允许创建泛型数组</li>
+</ul>
+<h2 id="5-正则表达式陷阱"><a href="#5-正则表达式陷阱" class="headerlink" title="5.正则表达式陷阱"></a>5.正则表达式陷阱</h2><h4 id="5-1String类的一些方法支持正则表达式"><a href="#5-1String类的一些方法支持正则表达式" class="headerlink" title="5.1String类的一些方法支持正则表达式"></a>5.1String类的一些方法支持正则表达式</h4><ul>
+<li>matches(String regex);判断该字符串是否匹配指定的正则表达式。</li>
+<li>String replaceAll(String regex,String replacement);将字符串中所以匹配指定正则表达式的子串替换成replacement后返回</li>
+<li>String replaceFirst(String regex,String replacement);将字符串中第一个匹配指定正则表达式的子串替换成replacement后返回</li>
+<li>String[] split(String regex);以regex正则表达式匹配的子串作为分割符来分割该字符串</li>
+</ul>
+<h2 id="6-多线程的陷阱"><a href="#6-多线程的陷阱" class="headerlink" title="6.多线程的陷阱"></a>6.多线程的陷阱</h2><h4 id="6-1不要调用-RUN-方法"><a href="#6-1不要调用-RUN-方法" class="headerlink" title="6.1不要调用 RUN 方法"></a>6.1不要调用 RUN 方法</h4><p>开启线程是用 start() 方法，而不是 run() 方法。</p>
+<h4 id="6-2静态的同步方法"><a href="#6-2静态的同步方法" class="headerlink" title="6.2静态的同步方法"></a>6.2静态的同步方法</h4><p>对于同步代码块而言，程序必须显式为它指定同步监视器；对于同步非静态方法而言，该方法的同步监视器是 this —— 即调用该方法的 Java 对象；对于静态的同步方法而言，该方法的同步监视器不是 this，而是该类本身。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpge">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://mybaron.github.io/MyBaron.github.io/2017/06/23/java基本功16课：（5）表达式中的陷阱/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2017/06/23/3步完成java反编译/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          3步完成java反编译
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2017/06/21/java基本功16课:（4）Java的内存回收/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java基本功16课:（4）Java的内存回收</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+
+
 
 
           </div>
@@ -236,9 +423,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
