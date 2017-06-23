@@ -6,22 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mybaron.github.io/MyBaron.github.io">
-  <title>java基本功16课:（3）常见的java集合的实现细节 | MyBraon</title>
+  <title>MyBraon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1.总结一下java集合。Set集合 ：无序集合（存储空间不连续），元素不可以重复 HashSet ：可以这样理解，1.继承了set集合的特点（无序，不重复）。2.线程不安全。3.元素值可以是null。4.调用或重写equals()和hashCode()方法进行比较。 TreeSet ：1.同样继承set集合的特点。2.线程不安全。3.元素有序（不是存储空间是连续的，而是可以有序输出）。4.可以">
-<meta name="keywords" content="java,java基本功">
-<meta property="og:type" content="article">
-<meta property="og:title" content="java基本功16课:（3）常见的java集合的实现细节">
-<meta property="og:url" content="https://mybaron.github.io/MyBaron.github.io/2017/06/20/java基本功16课:（3）常见的java集合的实现细节/index.html">
+  <meta name="description" content="喜爱是我坚持的唯一动力">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MyBraon">
+<meta property="og:url" content="https://mybaron.github.io/MyBaron.github.io/page/2/index.html">
 <meta property="og:site_name" content="MyBraon">
-<meta property="og:description" content="1.总结一下java集合。Set集合 ：无序集合（存储空间不连续），元素不可以重复 HashSet ：可以这样理解，1.继承了set集合的特点（无序，不重复）。2.线程不安全。3.元素值可以是null。4.调用或重写equals()和hashCode()方法进行比较。 TreeSet ：1.同样继承set集合的特点。2.线程不安全。3.元素有序（不是存储空间是连续的，而是可以有序输出）。4.可以">
-<meta property="og:image" content="https://mybaron.github.io/assets/img/5.jpg">
-<meta property="og:image" content="https://mybaron.github.io/assets/img/the_three.png">
-<meta property="og:updated_time" content="2017-06-22T18:25:16.690Z">
+<meta property="og:description" content="喜爱是我坚持的唯一动力">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java基本功16课:（3）常见的java集合的实现细节">
-<meta name="twitter:description" content="1.总结一下java集合。Set集合 ：无序集合（存储空间不连续），元素不可以重复 HashSet ：可以这样理解，1.继承了set集合的特点（无序，不重复）。2.线程不安全。3.元素值可以是null。4.调用或重写equals()和hashCode()方法进行比较。 TreeSet ：1.同样继承set集合的特点。2.线程不安全。3.元素有序（不是存储空间是连续的，而是可以有序输出）。4.可以">
-<meta name="twitter:image" content="https://mybaron.github.io/assets/img/5.jpg">
+<meta name="twitter:title" content="MyBraon">
+<meta name="twitter:description" content="喜爱是我坚持的唯一动力">
   
     <link rel="alternative" href="/atom.xml" title="MyBraon" type="application/atom+xml">
   
@@ -157,121 +152,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-java基本功16课:（3）常见的java集合的实现细节" class="article article-type-post " itemscope itemprop="blogPost">
+            
+  
+    <article id="post-建立博客初衷" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      java基本功16课:（3）常见的java集合的实现细节
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/06/15/建立博客初衷/">建立博客初衷</a>
     </h1>
   
 
         
-        <a href="/2017/06/20/java基本功16课:（3）常见的java集合的实现细节/" class="archive-article-date">
-  	<time datetime="2017-06-20T14:07:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-20</time>
+        <a href="/2017/06/15/建立博客初衷/" class="archive-article-date">
+  	<time datetime="2017-06-15T15:33:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <img src="/assets/img/5.jpg" class="Baron">
-<h2 id="1-总结一下java集合。"><a href="#1-总结一下java集合。" class="headerlink" title="1.总结一下java集合。"></a>1.总结一下java集合。</h2><h3 id="Set集合-：无序集合（存储空间不连续），元素不可以重复"><a href="#Set集合-：无序集合（存储空间不连续），元素不可以重复" class="headerlink" title="Set集合 ：无序集合（存储空间不连续），元素不可以重复"></a>Set集合 ：无序集合（存储空间不连续），元素不可以重复</h3><ul>
-<li>HashSet ：可以这样理解，1.继承了set集合的特点（无序，不重复）。2.线程不安全。3.元素值可以是null。4.调用或重写equals()和hashCode()方法进行比较。</li>
-<li>TreeSet ：1.同样继承set集合的特点。2.线程不安全。3.元素有序（不是存储空间是连续的，而是可以有序输出）。4.可以自然排序以及定制排序。</li>
-<li>LinkedHashSet：1.具有set集合特点。2.线程不安全。3.元素的插入顺序总是与添加顺序一致。<a id="more"></a>
-<h3 id="Queue集合：模拟队列的数据结构，“先进先出”。"><a href="#Queue集合：模拟队列的数据结构，“先进先出”。" class="headerlink" title="Queue集合：模拟队列的数据结构，“先进先出”。"></a>Queue集合：模拟队列的数据结构，“先进先出”。</h3></li>
-<li>Deque:双端队列，也可以是栈。此接口方法很多。</li>
-<li>ArrayDeque:基于数组的双端队列，可以在一开始就指定长度，默认长度为16。</li>
-<li>LinkedList: 虽然是list集合，但实现了Deque接口，可以当成双端队列使用。内部是以链表的形式保存元素。</li>
-</ul>
-<h3 id="List集合：元素有序，可重复的集合。"><a href="#List集合：元素有序，可重复的集合。" class="headerlink" title="List集合：元素有序，可重复的集合。"></a>List集合：元素有序，可重复的集合。</h3><ul>
-<li>ArrayList:1.数组队列，可动态增加容量。2.线程不安全。3.可通过索引随机访问元素，效率很高。</li>
-<li>LinkedList:1.双向链表,它也可以被当作堆栈、队列或双端队列进行操作.2.线程不安全。3.逐个遍历很快，随机遍历效率不高。</li>
-</ul>
-<h2 id="2-比较一下各集合的关系"><a href="#2-比较一下各集合的关系" class="headerlink" title="2.比较一下各集合的关系"></a>2.比较一下各集合的关系</h2><h3 id="Set和Map的关系"><a href="#Set和Map的关系" class="headerlink" title="Set和Map的关系"></a>Set和Map的关系</h3><ul>
-<li>Map集合的Key的特征是：不能重复，没有顺序。而Set的特征也是一样。因此你会发现，所有的Key其实是可以组成Set集合的。</li>
-<li>如果把Map集合的key-values看成一个整体，values是key的一个附属品，那么就可以把Map集合看成一个Set集合。<blockquote><p>以上两点关系有什么用呢？在Map集合建立Key的时候，就可以参照Set集合的存储元素规则：根据equals()和hashCode()比较两元素是否相等。</p>
-</blockquote> 
-<h3 id="HashMap和HashSet的关系"><a href="#HashMap和HashSet的关系" class="headerlink" title="HashMap和HashSet的关系"></a>HashMap和HashSet的关系</h3></li>
-<li>HashMap和HashSet的关系跟Map和Set的关系很像。</li>
-<li>HashSet根据hash算法决定元素存储位置。</li>
-<li>HashMap先把values当做是key的附属品，再根据hash算法决定元素存储位置。</li>
-<li>HashSet封装了一个HashMap对象来存储所有集合，所以HashSet的绝大多数方法是通过调用HashMap的方法实现的。<blockquote><p> 在判断HashMap集合的元素是否相等是用equals()和hashCode()两个方法比较的。（如果重写这两个方法返回值必须保持一致，以下是返回值的不同情况）<br>1.当两个都true，代表两元素是相等的，此时就不会添加进集合里。<br>2.如果第一个是false，第二个是true。此时就会添加在集合里，但是同一个地址怎<br>么放两个元素呢？其实在初始化集合的时候，划分的内存空间是一个数组，该数<br>组叫做Entry数组,该数组里的每一个元素成为“bucket”，每个bucket都有索引，系统可以通过索引快速寻找到bucket存储的元素。每个bucket都只存储一个Entry,但如何存储两个甚至更多呢（因为hashCode一样啊，所以这些元素都应该在同一个bucket里）？此时就用到了Entry链表了。因为Entry可以包含一个引用对象，这样就可以指向另一个Entry了。这样就实现了相等hashCode下，存储多个元素的问题了。<br><img src="/assets/img/the_three.png" class="Baron"><br>3.如果第一个true，第二个false。虽然元素会添加到集合里，但是当你需要根据key删除或者调用values的时候，往往是失败的。因为有一个key，两个索引，系统不知道取哪一个。</p>
-</blockquote>
-<h3 id="TreeMap和TreeSet的关系"><a href="#TreeMap和TreeSet的关系" class="headerlink" title="TreeMap和TreeSet的关系"></a>TreeMap和TreeSet的关系</h3></li>
-<li>TreeSet封装了一个TreeMap对象来存储所有集合，所以TreeSet的绝大多数方法是通过调用TreeMap的方法实现的。</li>
-<li>对于TreeMap而言，它是采用一种被称为“红黑树”的排序二叉树来保存Map中的Entry–每个Entry都被当成“红黑树”的一个节点对待。<blockquote><p>红黑树是一种自平衡二叉查找树，树中每一个节点的值，都大于或等于在它的左子树中的所有节点的值，并且少于或等于在它的右子树中的所有节点的值，这确保红黑树运行时可以快速地在书中查找和定位的所需节点。</p>
-</blockquote>
-<h3 id="Map和List的关系"><a href="#Map和List的关系" class="headerlink" title="Map和List的关系"></a>Map和List的关系</h3></li>
-<li>Map接口提供了get(K key)方法允许Map对象根据key来取得value。</li>
-<li>List接口提供了get(int index)方法允许List对象根据元素索引来取得value。</li>
-</ul>
-<h3 id="ArrayList-LinkedList-和-Vector的关系"><a href="#ArrayList-LinkedList-和-Vector的关系" class="headerlink" title="ArrayList ,LinkedList 和 Vector的关系"></a>ArrayList ,LinkedList 和 Vector的关系</h3><ul>
-<li>ArrayList 是一个可改变大小的数组.当更多的元素加入到 ArrayList 中时, 其大小将会动态地增长. 内部的元素可以直接通过 get 与 set 方法进行访问, 因为 ArrayList 本质上就是一个数组.</li>
-<li>LinkedList 是一个双链表, 在添加和删除元素时具有比 ArrayList 更好的性能. 但在 get 与 set 方面弱于ArrayList. 当然, 这些对比都是指数据量很大或者操作很频繁的情况下的对比, 如果数据和运算量很小,那么对比将失去意义.</li>
-<li>Vector 和 ArrayList 类似, 但属于强同步类。如果你的程序本身是线程安全的(thread-safe,没有在多个线程之间共享同一个集合/对象),那么使用 ArrayList 是更好的选择。Vector 和 ArrayList 在更多元素添加进来时会请求更大的空间。Vector 每次请求其大小的双倍空间，而 ArrayList每次对 size 增长 50%.<br>而 LinkedList 还实现了 Queue 接口, 该接口比 List 提供了更多的方法,包括 offer(), peek(), poll()等.<blockquote><p> 注意: 默认情况下 ArrayList 的初始容量非常小, 所以如果可以预估数据量的话, 分配一个较大的初始值属于最佳实践, 这样可以减少调整大小的开销。<br>LinkedList 更适用于:<br>没有大规模的随机读取<br>大量的增加/删除操作</p>
-</blockquote>
-<h2 id="以下是引用一些网上很好的问题。"><a href="#以下是引用一些网上很好的问题。" class="headerlink" title="以下是引用一些网上很好的问题。"></a>以下是引用一些网上很好的问题。</h2></li>
-</ul>
-<p><strong>“你用过HashMap吗？” “什么是HashMap？你为什么用到它？”</strong></p>
-<p>几乎每个人都会回答“是的”，然后回答HashMap的一些特性，譬如HashMap可以接受null键值和值，而Hashtable则不能；HashMap是非synchronized;HashMap很快；以及HashMap储存的是键值对等等。这显示出你已经用过HashMap，而且对它相当的熟悉。但是面试官来个急转直下，从此刻开始问出一些刁钻的问题，关于HashMap的更多基础的细节。面试官可能会问出下面的问题：</p>
-<p><strong>“你知道HashMap的工作原理吗？” “你知道HashMap的get()方法的工作原理吗？”</strong></p>
-<p>你也许会回答“我没有详查标准的Java API，你可以看看Java源代码或者Open JDK。”“我可以用Google找到答案。”<br>但一些面试者可能可以给出答案，“HashMap是基于hashing的原理，我们使用put(key, value)存储对象到HashMap中，使用get(key)从HashMap中获取对象。当我们给put()方法传递键和值时，我们先对键调用hashCode()方法，返回的hashCode用于找到bucket位置来储存Entry对象。”这里关键点在于指出，HashMap是在bucket中储存键对象和值对象，作为Map.Entry。这一点有助于理解获取对象的逻辑。如果你没有意识到这一点，或者错误的认为仅仅只在bucket中存储值的话，你将不会回答如何从HashMap中获取对象的逻辑。这个答案相当的正确，也显示出面试者确实知道hashing以及HashMap的工作原理。但是这仅仅是故事的开始，当面试官加入一些Java程序员每天要碰到的实际场景的时候，错误的答案频现。下个问题可能是关于HashMap中的碰撞探测(collision detection)以及碰撞的解决方法：</p>
-<p><strong>“当两个对象的hashcode相同会发生什么？”</strong></p>
-<p>从这里开始，真正的困惑开始了，一些面试者会回答因为hashcode相同，所以两个对象是相等的，HashMap将会抛出异常，或者不会存储它们。然后面试官可能会提醒他们有equals()和hashCode()两个方法，并告诉他们两个对象就算hashcode相同，但是它们可能并不相等。一些面试者可能就此放弃，而另外一些还能继续挺进，他们回答“因为hashcode相同，所以它们的bucket位置相同，‘碰撞’会发生。因为HashMap使用链表存储对象，这个Entry(包含有键值对的Map.Entry对象)会存储在链表中。”这个答案非常的合理，虽然有很多种处理碰撞的方法，这种方法是最简单的，也正是HashMap的处理方法。但故事还没有完结，面试官会继续问：</p>
-<p><strong>“如果两个键的hashcode相同，你如何获取值对象？”</strong></p>
-<p>面试者会回答：当我们调用get()方法，HashMap会使用键对象的hashcode找到bucket位置，然后获取值对象。面试官提醒他如果有两个值对象储存在同一个bucket，他给出答案:将会遍历链表直到找到值对象。面试官会问因为你并没有值对象去比较，你是如何确定确定找到值对象的？除非面试者直到HashMap在链表中存储的是键值对，否则他们不可能回答出这一题。<br>其中一些记得这个重要知识点的面试者会说，找到bucket位置之后，会调用keys.equals()方法去找到链表中正确的节点，最终找到要找的值对象。完美的答案！<br>许多情况下，面试者会在这个环节中出错，因为他们混淆了hashCode()和equals()方法。因为在此之前hashCode()屡屡出现，而equals()方法仅仅在获取值对象的时候才出现。一些优秀的开发者会指出使用不可变的、声明作final的对象，并且采用合适的equals()和hashCode()方法的话，将会减少碰撞的发生，提高效率。不可变性使得能够缓存不同键的hashcode，这将提高整个获取对象的速度，使用String，Interger这样的wrapper类作为键是非常好的选择。<br>如果你认为到这里已经完结了，那么听到下面这个问题的时候，你会大吃一惊。<br><strong>“如果HashMap的大小超过了负载因子(load factor)定义的容量，怎么办？”</strong><br>除非你真正知道HashMap的工作原理，否则你将回答不出这道题。默认的负载因子大小为0.75，也就是说，当一个map填满了75%的bucket时候，和其它集合类(如ArrayList等)一样，将会创建原来HashMap大小的两倍的bucket数组，来重新调整map的大小，并将原来的对象放入新的bucket数组中。这个过程叫作rehashing，因为它调用hash方法找到新的bucket位置。<br>如果你能够回答这道问题，下面的问题来了：</p>
-<p><strong>“你了解重新调整HashMap大小存在什么问题吗？”</strong></p>
-<p>你可能回答不上来，这时面试官会提醒你当多线程的情况下，可能产生条件竞争(race condition)。<br>当重新调整HashMap大小的时候，确实存在条件竞争，因为如果两个线程都发现HashMap需要重新调整大小了，它们会同时试着调整大小。在调整大小的过程中，存储在链表中的元素的次序会反过来，因为移动到新的bucket位置的时候，HashMap并不会将元素放在链表的尾部，而是放在头部，这是为了避免尾部遍历(tail traversing)。如果条件竞争发生了，那么就死循环了。这个时候，你可以质问面试官，为什么这么奇怪，要在多线程的环境下使用HashMap呢？：）<br>热心的读者贡献了更多的关于HashMap的问题：</p>
-<p><strong>为什么String, Interger这样的wrapper类适合作为键？</strong></p>
-<p>String, Interger这样的wrapper类作为HashMap的键是再适合不过了，而且String最为常用。因为String是不可变的，也是final的，而且已经重写了equals()和hashCode()方法了。其他的wrapper类也有这个特点。不可变性是必要的，因为为了要计算hashCode()，就要防止键值改变，如果键值在放入时和获取时返回不同的hashcode的话，那么就不能从HashMap中找到你想要的对象。不可变性还有其他的优点如线程安全。如果你可以仅仅通过将某个field声明成final就能保证hashCode是不变的，那么请这么做吧。因为获取对象的时候要用到equals()和hashCode()方法，那么键对象正确的重写这两个方法是非常重要的。如果两个不相等的对象返回不同的hashcode的话，那么碰撞的几率就会小些，这样就能提高HashMap的性能。</p>
-<p><strong>我们可以使用自定义的对象作为键吗？</strong></p>
-<p>这是前一个问题的延伸。当然你可能使用任何对象作为键，只要它遵守了equals()和hashCode()方法的定义规则，并且当对象插入到Map中之后将不会再改变了。如果这个自定义对象时不可变的，那么它已经满足了作为键的条件，因为当它创建之后就已经不能改变了。</p>
-<p><strong>我们可以使用CocurrentHashMap来代替Hashtable吗？</strong></p>
-<p>这是另外一个很热门的面试题，因为ConcurrentHashMap越来越多人用了。我们知道Hashtable是synchronized的，但是ConcurrentHashMap同步性能更好，因为它仅仅根据同步级别对map的一部分进行上锁。ConcurrentHashMap当然可以代替HashTable，但是HashTable提供更强的线程安全性。看看 <a href="http://javarevisited.blogspot.sg/2011/04/difference-between-concurrenthashmap.html" target="_blank" rel="external">这篇博客</a> 查看Hashtable和ConcurrentHashMap的区别。</p>
-<p>我个人很喜欢这个问题，因为这个问题的深度和广度，也不直接的涉及到不同的概念。让我们再来看看这些问题设计哪些知识点：<br><blockquote><ul>
-<li>hashing的概念<ul>
-<li>HashMap中解决碰撞的方法</li>
-<li>equals()和hashCode()的应用，以及它们在HashMap中的重要性</li>
-<li>不可变对象的好处</li>
-<li>HashMap多线程的条件竞争</li>
-<li>重新调整HashMap的大小</li>
-</ul>
-</li>
-</ul>
-</blockquote></p>
-
+        <img src="/assets/img/1.jpg" class="gream">
+<h2 id="理由"><a href="#理由" class="headerlink" title="理由"></a>理由</h2><p>1.在学习编程也有两年了，在这两年里，我接受过很多人的帮忙，真的很感谢他们。在他们的帮助下，我的走少了很多弯路。现在的我，也应该把我掉过的一些坑，一些经验分享出来，希望能帮助更多的人。<br>2.自己本身走的路是java web，在经过接近一年的学习时间，起码是能够独立做出一个项目出来。但最近在复习一些基本知识的时候，发现竟然把一些很基础的知识给遗忘了。不禁让我沉思，最近的自己也许是有些好高骛远了。所以，狠下心来，建立个博客。时刻提醒着自己能够浅下心来学习。不要迷失了方向。<br>
+        
+          <a class="article-more-a" href="/2017/06/15/建立博客初衷/#more">more >></a>
+        
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/weixin.jpge">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -282,11 +191,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
@@ -295,83 +200,19 @@
       
 
       
-
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/15/建立博客初衷/">展开全文 >></a>
+        </p>
       
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
 
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://mybaron.github.io/MyBaron.github.io/2017/06/20/java基本功16课:（3）常见的java集合的实现细节/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-  
-<nav id="article-nav">
-  
-    <a href="/2017/06/21/java基本功16课:（4）Java的内存回收/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          java基本功16课:（4）Java的内存回收
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/06/17/java基本功16课:（2）对象与内存控制/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java基本功16课:（2）对象与内存控制</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
+
+
 
 
 
@@ -379,14 +220,10 @@
 
   
   
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
   
-
-  
-
-  
-
-
-
 
 
           </div>
@@ -416,8 +253,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
-		isPost: true,
+		isHome: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
