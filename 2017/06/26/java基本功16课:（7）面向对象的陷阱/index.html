@@ -6,19 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mybaron.github.io/MyBaron.github.io">
-  <title>linux命令:mv | MyBraon</title>
+  <title>java基本功16课:（7）面向对象的陷阱 | MyBraon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##心得  就是一个移动文件/目录的一个命令。">
-<meta name="keywords" content="linux 命令">
+  <meta name="keywords" content="java基本功,java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="linux命令:mv">
-<meta property="og:url" content="https://mybaron.github.io/MyBaron.github.io/2017/06/24/linux命令-mv/index.html">
+<meta property="og:title" content="java基本功16课:（7）面向对象的陷阱">
+<meta property="og:url" content="https://mybaron.github.io/MyBaron.github.io/2017/06/26/java基本功16课:（7）面向对象的陷阱/index.html">
 <meta property="og:site_name" content="MyBraon">
-<meta property="og:description" content="##心得  就是一个移动文件/目录的一个命令。">
-<meta property="og:updated_time" content="2017-06-23T17:29:30.853Z">
+<meta property="og:image" content="https://mybaron.github.io/assets/img/11.jpg">
+<meta property="og:updated_time" content="2017-06-26T03:59:36.360Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux命令:mv">
-<meta name="twitter:description" content="##心得  就是一个移动文件/目录的一个命令。">
+<meta name="twitter:title" content="java基本功16课:（7）面向对象的陷阱">
+<meta name="twitter:image" content="https://mybaron.github.io/assets/img/11.jpg">
   
     <link rel="alternative" href="/atom.xml" title="MyBraon" type="application/atom+xml">
   
@@ -154,42 +153,63 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-linux命令-mv" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-java基本功16课:（7）面向对象的陷阱" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      linux命令:mv
+      java基本功16课:（7）面向对象的陷阱
     </h1>
   
 
         
-        <a href="/2017/06/24/linux命令-mv/" class="archive-article-date">
-  	<time datetime="2017-06-23T17:28:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-24</time>
+        <a href="/2017/06/26/java基本功16课:（7）面向对象的陷阱/" class="archive-article-date">
+  	<time datetime="2017-06-26T03:55:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-26</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##心得</p>
-<ul>
-<li>就是一个移动文件/目录的一个命令。<a id="more"></a>
-mv命令是move的缩写，可以用来移动文件或者将文件改名（move (rename) files），是Linux系统下常用的命令，经常用来备份文件或者目录。</li>
-<li>1．命令格式：<br>  mv [选项] 源文件或目录 目标文件或目录</li>
-<li>2．命令功能：<br>视mv命令中第二个参数类型的不同（是目标文件还是目标目录），mv命令将文件重命名或将其移至一个新的目录中。当第二个参数类型是文件时，mv命令完成文件重命名，此时，源文件只能有一个（也可以是源目录名），它将所给的源文件或目录重命名为给定的目标文件名。当第二个参数是已存在的目录名称时，源文件或目录参数可以有多个，mv命令将各参数指定的源文件均移至目标目录中。在跨文件系统移动文件时，mv先拷贝，再将原有文件删除，而链至该文件的链接也将丢失。</li>
-<li>3．命令参数：<ul>
-<li>b ：若需覆盖文件，则覆盖前先行备份。 </li>
-<li>f ：force 强制的意思，如果目标文件已经存在，不会询问而直接覆盖；</li>
-<li>i ：若目标文件 (destination) 已经存在时，就会询问是否覆盖！</li>
-<li>u ：若目标文件已经存在，且 source 比较新，才会更新(update)</li>
-<li>t  ： –target-directory=DIRECTORY move all SOURCE arguments into DIRECTORY，即指定mv的目标目录，该选项适用于移动多个源文件到一个目录的情况，此时目标目录在前，源文件在后。</li>
+        <img src="/assets/img/11.jpg" class="Baron">
+<a id="more"></a>
+<h2 id="instanceof-运算符的陷阱"><a href="#instanceof-运算符的陷阱" class="headerlink" title="instanceof 运算符的陷阱"></a>instanceof 运算符的陷阱</h2><ul>
+<li>instanceof 它用于判断前面的对象是否是后面的类或其子类、实现类的实例。如果是返回 true，否则返回 false。</li>
+<li>instanceof 运算符前面操作数的编译时类型必须是：<ul>
+<li>要么与后面的类相同</li>
+<li>要么是后面类的父类</li>
+<li>要么是后面类型的子类</li>
 </ul>
 </li>
 </ul>
-<p><a href="http://www.cnblogs.com/peida/archive/2012/10/27/2743022.html" target="_blank" rel="external">例子参照</a></p>
+<h2 id="构造器陷阱"><a href="#构造器陷阱" class="headerlink" title="构造器陷阱"></a>构造器陷阱</h2><ul>
+<li>构造器是 Java 中每个类都会提供的一个“特殊方法”。构造器负责对 Java 对象执行初始化操作，不管是定义实例变量时指定的初始值，还是在非静态初始化代码块中所做的操作，实际上都会被提取到构造器中执行。</li>
+<li>构造器不能声明返回值类型，也不能使用void声明构造器没有返回值。</li>
+</ul>
+<h2 id="构造器创建对象吗"><a href="#构造器创建对象吗" class="headerlink" title="构造器创建对象吗"></a>构造器创建对象吗</h2><ul>
+<li>构造器并不会创建 Java 对象，构造器只是负责执行初始化，在构造器执行之前，Java 对象所需要的内存空间，是由 new 关键字申请出来的。绝大部分时候，程序使- 用 new 关键字为一个 Java 对象申请空间之后，都需要使用构造器为这个对象执行初始化，但在某些时候，程序创建 Java 对象无需调用构造器，如下：<ul>
+<li>使用反序列化的方式恢复 Java 对象 </li>
+<li>使用 clone 方法复制 Java 对象</li>
+</ul>
+</li>
+</ul>
+<h2 id="到底调用哪个重载方法"><a href="#到底调用哪个重载方法" class="headerlink" title="到底调用哪个重载方法"></a>到底调用哪个重载方法</h2><ul>
+<li><p>第一阶段 JVM 将会选取所有可获得并匹配调用的方法或者构造器</p>
+</li>
+<li><p>第二个阶段决定到底要调用哪个方法，此时 JVM 会在第一阶段所选取的方法或者构造器中再次选取最精确匹配的那一个。</p>
+</li>
+</ul>
+<h2 id="方法重写的陷阱"><a href="#方法重写的陷阱" class="headerlink" title="方法重写的陷阱"></a>方法重写的陷阱</h2><ul>
+<li>无法重写父类 private 方法。如果子类有一个与父类 private 方法具有相同方法名、相同形参列表、相同返回值类型的方法，依然不是重写，只是子类定义了一个与父类相同的方法。</li>
+</ul>
+<h2 id="static-关键字"><a href="#static-关键字" class="headerlink" title="static 关键字"></a>static 关键字</h2><ul>
+<li>static 可以修饰类中定义的成员：field、方法、内部类、初始化代码块、内部枚举类</li>
+</ul>
+<h2 id="静态方法属于类"><a href="#静态方法属于类" class="headerlink" title="静态方法属于类"></a>静态方法属于类</h2><ul>
+<li>被 static 修饰的成员（field、方法、内部类、初始化块、内部枚举类）属于类本身，而不是单个的 Java 对象。静态方法也是属于类。</li>
+</ul>
 
       
 
@@ -229,7 +249,11 @@ mv命令是move的缩写，可以用来移动文件或者将文件改名（move 
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">linux 命令</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
@@ -285,7 +309,7 @@ mv命令是move的缩写，可以用来移动文件或者将文件改名（move 
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://mybaron.github.io/MyBaron.github.io/2017/06/24/linux命令-mv/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://mybaron.github.io/MyBaron.github.io/2017/06/26/java基本功16课:（7）面向对象的陷阱/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -299,18 +323,18 @@ mv命令是move的缩写，可以用来移动文件或者将文件改名（move 
   
 <nav id="article-nav">
   
-    <a href="/2017/06/26/java基本功16课:（7）面向对象的陷阱/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/06/26/java基本功16课:（8）异常捕捉的陷阱/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          java基本功16课:（7）面向对象的陷阱
+          java基本功16课:（8）异常捕捉的陷阱
         
       </div>
     </a>
   
   
-    <a href="/2017/06/24/java基本功16课:（6）流程控制的陷阱/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java基本功16课:（6）流程控制的陷阱</div>
+    <a href="/2017/06/24/linux命令-mv/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">linux命令:mv</div>
       <i class="icon-circle-right"></i>
     </a>
   
