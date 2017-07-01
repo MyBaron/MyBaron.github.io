@@ -6,22 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mybaron.github.io/MyBaron.github.io">
-  <title>Spring学习（二）：3个装配bean方式 | MyBraon</title>
+  <title>linux命令：mkdir | MyBraon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="3个装配方式 基于Java类的配置方式 基于XML的配置方式 基于注解的配置方式">
-<meta name="keywords" content="java框架，Spring">
+  <meta name="description" content="linux mkdir 命令用来创建指定的名称的目录，要求创建目录的用户在当前目录中具有写权限，并且指定的目录名不能是当前目录中已有的目录。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring学习（二）：3个装配bean方式">
-<meta property="og:url" content="https://mybaron.github.io/MyBaron.github.io/2017/06/26/Spring学习（二）：3个装配bean方式/index.html">
+<meta property="og:title" content="linux命令：mkdir">
+<meta property="og:url" content="https://mybaron.github.io/MyBaron.github.io/2017/07/01/linux命令：mkdir/index.html">
 <meta property="og:site_name" content="MyBraon">
-<meta property="og:description" content="3个装配方式 基于Java类的配置方式 基于XML的配置方式 基于注解的配置方式">
-<meta property="og:image" content="https://mybaron.github.io/assets/img/spring/2.jpg">
-<meta property="og:image" content="https://mybaron.github.io/assets/img/spring/xml.png">
-<meta property="og:updated_time" content="2017-06-26T04:11:26.546Z">
+<meta property="og:description" content="linux mkdir 命令用来创建指定的名称的目录，要求创建目录的用户在当前目录中具有写权限，并且指定的目录名不能是当前目录中已有的目录。">
+<meta property="og:updated_time" content="2017-07-01T14:13:49.501Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring学习（二）：3个装配bean方式">
-<meta name="twitter:description" content="3个装配方式 基于Java类的配置方式 基于XML的配置方式 基于注解的配置方式">
-<meta name="twitter:image" content="https://mybaron.github.io/assets/img/spring/2.jpg">
+<meta name="twitter:title" content="linux命令：mkdir">
+<meta name="twitter:description" content="linux mkdir 命令用来创建指定的名称的目录，要求创建目录的用户在当前目录中具有写权限，并且指定的目录名不能是当前目录中已有的目录。">
   
     <link rel="alternative" href="/atom.xml" title="MyBraon" type="application/atom+xml">
   
@@ -157,171 +153,34 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Spring学习（二）：3个装配bean方式" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-linux命令：mkdir" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Spring学习（二）：3个装配bean方式
+      linux命令：mkdir
     </h1>
   
 
         
-        <a href="/2017/06/26/Spring学习（二）：3个装配bean方式/" class="archive-article-date">
-  	<time datetime="2017-06-26T03:57:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-26</time>
+        <a href="/2017/07/01/linux命令：mkdir/" class="archive-article-date">
+  	<time datetime="2017-07-01T14:00:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <img src="/assets/img/spring/2.jpg" class="Baron">
-<h2 id="3个装配方式"><a href="#3个装配方式" class="headerlink" title="3个装配方式"></a>3个装配方式</h2><ul>
-<li>基于Java类的配置方式</li>
-<li>基于XML的配置方式</li>
-<li>基于注解的配置方式<a id="more"></a>
-<h2 id="1-基于Java类的配置方式"><a href="#1-基于Java类的配置方式" class="headerlink" title="1.基于Java类的配置方式"></a>1.基于Java类的配置方式</h2>基于Java类定义Bean配置元数据，其实就是通过Java类定义Spring配置元数据，且直接消除XML配置文件。<h4 id="1-1要点："><a href="#1-1要点：" class="headerlink" title="1.1要点："></a>1.1要点：</h4></li>
-<li>必须要两个注解：<ul>
-<li>@Configuration :代替了xml配置.表明该类是一个配置类，该类应该包含在Spring应用上下文中如何创建bean的细节。</li>
-<li>@Bean    : 告诉Spring，这个方法将会返回一个对象。一般用在构造器和Setter方法上</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<ul>
-<li>只需要这个两个注解，就可以完成bean的装配过程了。 </li>
-</ul>
-</blockquote>
-<ul>
-<li>非必须的注解：<ul>
-<li>@import :用来引入别的类里面同样有@Configuration标签的类。</li>
-<li>@importResource : 用来引入xml配置，实现xml配置方式和java类配置方式共存。</li>
-</ul>
-</li>
-</ul>
-<h4 id="1-2例子"><a href="#1-2例子" class="headerlink" title="1.2例子"></a>1.2例子</h4><ul>
-<li>代码结构<ul>
-<li>Configuration 包：用来放Java类的配置。其实其作用就是跟xml配置一样的。所以此包下的类是Java类配置方式的核心</li>
-<li>Entity 包：用来放bean</li>
-<li>test 包： 测试 </li>
-</ul>
-</li>
-<li><p>代码</p>
-<ul>
-<li><p>Configuration 包下的EntityConfig类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Configuration</span> <span class="comment">//表示这个类可以使用 Spring IoC 容器作为 bean 定义的来源</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EntityConfig</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="function"><span class="keyword">public</span> UserBean <span class="title">user</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> UserBean( student());  <span class="comment">//有参构造</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="function"><span class="keyword">public</span> StudentBean <span class="title">student</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> StudentBean();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>Entity 包 UserBean类和StudentBean类：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserBean</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> StudentBean studentBean;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserBean</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserBean</span><span class="params">(StudentBean studentBean)</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.studentBean=studentBean;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="string">"this is UserBean"</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> StudentBean <span class="title">getStudent</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> studentBean;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudentBean</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"this is StudentBean"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>test 包<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</div><div class="line">       </div><div class="line">        ApplicationContext ctx=</div><div class="line">                <span class="keyword">new</span> AnnotationConfigApplicationContext(EntityConfig.class);  <span class="comment">//应用上下问</span></div><div class="line">        UserBean userBean=ctx.getBean(UserBean.class);</div><div class="line"></div><div class="line">        StudentBean student = userBean.getStudent(); <span class="comment">//从userBean里，看是否获得studenBean</span></div><div class="line">        System.out.println(student.toString());</div><div class="line"></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="1-3基于Java类的配置主要使用场景："><a href="#1-3基于Java类的配置主要使用场景：" class="headerlink" title="1.3基于Java类的配置主要使用场景："></a>1.3基于Java类的配置主要使用场景：</h4><p>对于实例化Bean的逻辑比较复杂，则比较适合用基于Java类配置的方式</p>
-<h2 id="2-基于XML配置"><a href="#2-基于XML配置" class="headerlink" title="2.基于XML配置"></a>2.基于XML配置</h2><p>其实可从基于java类配置方式去考虑，在Java类配置方式中，需要的两个注解@Configuration 和@Bean 转化成xml配置文件里说明。这样的话java的配置类也可以不要了。</p>
-<h4 id="2-1要点"><a href="#2-1要点" class="headerlink" title="2.1要点"></a>2.1要点</h4><ul>
-<li>xml配置。有两篇文章可以参考。<ul>
-<li><a href="http://blog.csdn.net/icarus_wang/article/details/51559850" target="_blank" rel="external">配置文件概述</a></li>
-<li><a href="http://blog.csdn.net/weiwangchao_/article/details/49534329" target="_blank" rel="external">配置文件详解</a><ul>
-<li>基于xml配置的特点是自由度很高。可以实现初始化bean。还有c-命名空间等来装配bean。<a href="https://nkcoder.github.io/2014/03/08/spring-di-xml/" target="_blank" rel="external">装配bean</a><h4 id="2-2-例子"><a href="#2-2-例子" class="headerlink" title="2.2 例子"></a>2.2 例子</h4></li>
-<li>Entity类：跟上面类一样，不需要该。</li>
-<li>xml配置:</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</div><div class="line">       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans</div><div class="line">http://www.springframework.org/schema/beans/spring-beans-2.5.xsd&quot;&gt;</div><div class="line"></div><div class="line"></div><div class="line">    &lt;bean id=&quot;studentBean&quot; class=&quot;cn.Entity.StudentBean&quot;/&gt;  </div><div class="line"></div><div class="line">    &lt;bean id=&quot;userBean&quot; class=&quot;cn.Entity.UserBean&quot;&gt;</div><div class="line">     //在userBean类里面注入StudentBean 类，如果没有这条会出现</div><div class="line">       NullPointerException异常</div><div class="line">    &lt;property name=&quot;studentBean&quot;  ref=&quot;studentBean&quot;/&gt;    </div><div class="line">     // name=&quot;&quot; 是userBean 的属性名称。（需要setter方法）</div><div class="line">     // ref=&quot;&quot; 是上面studentBean类注入的id。</div><div class="line">     &lt;/bean&gt;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
-<ul>
-<li><p>test类</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@Test</div><div class="line">    public void testUserBean()&#123;</div><div class="line">        ApplicationContext ctx=</div><div class="line">                new ClassPathXmlApplicationContext(&quot;spring.xml&quot;); //配置文件的绝对路径</div><div class="line">        if (ctx!=null)&#123;</div><div class="line">            UserBean user = (UserBean) ctx.getBean(UserBean.class);</div><div class="line">            System.out.println(user.getStudent());</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>使用场景：</p>
-<ul>
-<li>第三方类库，如DataSource、JdbcTemplate等； </li>
-<li>命名空间，如aop、context等；</li>
-</ul>
-</li>
-</ul>
-<h2 id="3-自动化装配bean"><a href="#3-自动化装配bean" class="headerlink" title="3.自动化装配bean"></a>3.自动化装配bean</h2><p>可以对比前面两种方法的变化，可以知道配置方法上的不同了。</p>
-<ul>
-<li>相对于<strong>基于xml配置方法</strong>来说，不需要在xml里面配置注入bean的信息，而换成注解注入。</li>
-<li>而相对与<strong>基于java配置方法</strong>来说，不需要在配置类中创建对象的方法，只需要在需要注入的地方，用注解就可以了</li>
-</ul>
-<h4 id="3-1要点"><a href="#3-1要点" class="headerlink" title="3.1要点"></a>3.1要点</h4><ul>
-<li>从两个角度来实现自动化装配：<ul>
-<li>组件扫描：Spring会自动发现应用上下文中所创建的bean。(需要在xml里面配置，或者用注解)</li>
-<li>自动装配：Spring自动满足bean之间的依赖。(需要用注解)</li>
-</ul>
-</li>
-</ul>
-<h4 id="3-2例子"><a href="#3-2例子" class="headerlink" title="3.2例子"></a>3.2例子</h4><ul>
-<li><p>用@configuration来装配bean</p>
-<ul>
-<li>用到的注解<ul>
-<li>@Configuration :代替了xml配置.表明该类是一个配置类，该类应该包含在Spring应用上下文中如何创建bean的细节。</li>
-<li>@ComponentScan:启动组件扫描。（如果没有设定范围，默认该包下）</li>
-<li>@Autowired ：自动注入。用在类下对象的注入</li>
-<li>@Compoent : 表明该类会作为组件类，并告知Spring要为该类建立bean。</li>
-<li>@RunWith(SpringJUnit4ClassRunner,class):在测试开始的时候自动创建Spring的应用上下文</li>
-<li>@ContextConfiguration(class=xxxx) ：加载配置，在这里是Config.class<blockquote>
-<p>很奇怪，如果不用@ContextConfiguration(class=xxxx) 这个加载配置，是扫描不到我测试类下面的@Autowired 注解。也就是我用正规创建上下文方法创建的话，test类下的对象是null的。 <strong>有待解决</strong></p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li>代码结构<ul>
-<li>Config类：用来装配Spring规则。具有@Configuration和@ComponentScan注解<ul>
-<li>StudentBean类和UserBean</li>
-<li>test类</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>例子</p>
-<ul>
-<li><p>Config类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="meta">@ComponentScan</span>(basePackages = &#123;<span class="string">"cn.Entity"</span>&#125;)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Config</span> </span>&#123;  <span class="comment">//不需像基于java配置一样，用方法返回new 对象。</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>SutdentBean和UserBean类 </p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StudentBean</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> String name;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"this is StudentBean"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">***********************************************************************</div><div class="line"><span class="meta">@Component</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserBean</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> StudentBean studentBean;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserBean</span><span class="params">()</span></span>&#123;&#125;</div><div class="line"></div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">UserBean</span><span class="params">(StudentBean studentBean)</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.studentBean=studentBean;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="string">"this is UserBean"</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> StudentBean <span class="title">getStudent</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> studentBean;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> StudentBean <span class="title">getStudentBean</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> studentBean;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>test类<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"> <span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</div><div class="line"><span class="meta">@ContextConfiguration</span>(classes = Config.class)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserBeanTest</span> <span class="keyword">extends</span> <span class="title">TestCase</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    <span class="keyword">private</span> UserBean userBean;</div><div class="line"></div><div class="line">    <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUserBean</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">            System.out.println(userBean.getStudent());</div><div class="line">             System.out.println(userBean);</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><p>用xml配置文件来装配bean<br>只是把上面的Config类，用xml替换掉。其实只是用xml文档写一个扫描语句</p>
-<ul>
-<li><p>spring.xml文档</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line">&lt;beans //省去很多约束</div><div class="line"></div><div class="line">&lt;context:component-scan base-package="cn.Entity"/&gt;</div><div class="line"></div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
-</li>
-<li><p>StudentBean类和UserBean类没变</p>
-</li>
-<li>Test类 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"> <span class="meta">@RunWith</span>(SpringJUnit4ClassRunner.class)</div><div class="line">  <span class="meta">@ContextConfiguration</span>(&#123;<span class="string">"/spring.xml"</span>&#125;)  <span class="comment">//加载xml配置</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserBeanTest</span> <span class="keyword">extends</span> <span class="title">TestCase</span> </span>&#123;</div><div class="line">   <span class="meta">@Autowired</span></div><div class="line">  <span class="keyword">private</span> UserBean userBean;</div><div class="line">  <span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testUserBean</span><span class="params">()</span></span>&#123;</div><div class="line">          System.out.println(userBean.getStudent());</div><div class="line">           System.out.println(userBean);</div><div class="line">    &#125;       &#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>使用场景：Bean的实现类是当前项目开发的，可直接在Java类中使用注解配置</p>
-</li>
-</ul>
-<h2 id="4-总结"><a href="#4-总结" class="headerlink" title="4.总结"></a>4.总结</h2><ul>
-<li>3个配置方式其实都很简单，在开发过程中，都是推荐使用xml配置和自动化装配。</li>
-<li>不同配置方式比较</li>
-</ul>
-<p><img src="/assets/img/spring/xml.png" alt="xml.png"></p>
+        <p>linux mkdir 命令用来创建指定的名称的目录，要求创建目录的用户在当前目录中具有写权限，并且指定的目录名不能是当前目录中已有的目录。<br><a id="more"></a><br>1．命令格式：</p>
+<pre><code>- mkdir [选项] 目录...
+</code></pre><p>2．命令功能：</p>
+<pre><code>- 通过 mkdir 命令可以实现在指定位置创建以 DirName(指定的文件名)命名的文件夹或目录。
+- 要创建文件夹或目录的用户必须对所创建的文件夹的父文件夹具有写权限。
+- 并且，所创建的文件夹(目录)不能与其父目录(即父文件夹)中的文件名重名，即同一个目录下不能有同名的(区分大小写)。 
+</code></pre><p>3．命令参数：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">-m, --mode=模式，设定权限&lt;模式&gt; (类似 chmod)，而不是 rwxrwxrwx 减 umask-</div><div class="line">-p, --parents  可以是一个路径名称。此时若路径中的某些目录尚不存在,加上此选项后,系统将自动建立好那些尚不存在的目录,即一次可以建立多个目录; </div><div class="line">-v, --verbose  每次创建新目录都显示信息</div><div class="line">    --help   显示此帮助信息并退出</div><div class="line">    --version  输出版本信息并退出</div></pre></td></tr></table></figure></p>
+<p><a href="http://www.cnblogs.com/peida/archive/2012/10/25/2738271.html" target="_blank" rel="external">例子</a></p>
 
       
 
@@ -356,17 +215,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">java框架，Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -417,7 +265,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://mybaron.github.io/MyBaron.github.io/2017/06/26/Spring学习（二）：3个装配bean方式/" alt="微信分享二维码">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://mybaron.github.io/MyBaron.github.io/2017/07/01/linux命令：mkdir/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -432,8 +280,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2017/06/26/linux命令-ls/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">linux命令:ls</div>
+    <a href="/2017/07/01/linux命令：pwd/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">linux命令：pwd</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -544,11 +392,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">java框架，Spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">java基本功</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -556,7 +400,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">java基本功</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -565,6 +409,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">java框架，Spring</a>
               </li>
             
             <div class="clearfix"></div>

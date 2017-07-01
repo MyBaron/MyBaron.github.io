@@ -8,17 +8,19 @@
   <link rel="dns-prefetch" href="https://mybaron.github.io/MyBaron.github.io">
   <title>linux命令:ls | MyBraon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="mv命令是move的缩写，可以用来移动文件或者将文件改名（move (rename) files），是Linux系统下常用的命令，经常用来备份文件或者目录。  1．命令格式：  mv [选项] 源文件或目录 目标文件或目录">
+  <meta name="description" content="1.文件权限概念 文件拥有者：一般是文件的最高权限者，创建者。管理属于自己的个人隐私文件。对文件的最小管理单元。 群组：处在同一群组的人对文件有相同的权限，对同一组别的用户进行权限管理。 其他人的概念：除了文件拥有者和群组内的其他用户，一般是可以公开的权限，对所有人都可以的权限的管理单元。 在我们Linux系统当中，默认的情况下，所有的系统上的帐号与一般身份使用者，还有那个root的相关信息， 都">
 <meta name="keywords" content="linux 命令">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux命令:ls">
 <meta property="og:url" content="https://mybaron.github.io/MyBaron.github.io/2017/06/26/linux命令-ls/index.html">
 <meta property="og:site_name" content="MyBraon">
-<meta property="og:description" content="mv命令是move的缩写，可以用来移动文件或者将文件改名（move (rename) files），是Linux系统下常用的命令，经常用来备份文件或者目录。  1．命令格式：  mv [选项] 源文件或目录 目标文件或目录">
-<meta property="og:updated_time" content="2017-06-26T04:02:23.480Z">
+<meta property="og:description" content="1.文件权限概念 文件拥有者：一般是文件的最高权限者，创建者。管理属于自己的个人隐私文件。对文件的最小管理单元。 群组：处在同一群组的人对文件有相同的权限，对同一组别的用户进行权限管理。 其他人的概念：除了文件拥有者和群组内的其他用户，一般是可以公开的权限，对所有人都可以的权限的管理单元。 在我们Linux系统当中，默认的情况下，所有的系统上的帐号与一般身份使用者，还有那个root的相关信息， 都">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6212571-f43dd4623c3c2e66.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-01T13:59:37.379Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux命令:ls">
-<meta name="twitter:description" content="mv命令是move的缩写，可以用来移动文件或者将文件改名（move (rename) files），是Linux系统下常用的命令，经常用来备份文件或者目录。  1．命令格式：  mv [选项] 源文件或目录 目标文件或目录">
+<meta name="twitter:description" content="1.文件权限概念 文件拥有者：一般是文件的最高权限者，创建者。管理属于自己的个人隐私文件。对文件的最小管理单元。 群组：处在同一群组的人对文件有相同的权限，对同一组别的用户进行权限管理。 其他人的概念：除了文件拥有者和群组内的其他用户，一般是可以公开的权限，对所有人都可以的权限的管理单元。 在我们Linux系统当中，默认的情况下，所有的系统上的帐号与一般身份使用者，还有那个root的相关信息， 都">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/6212571-f43dd4623c3c2e66.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="MyBraon" type="application/atom+xml">
   
@@ -174,24 +176,37 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>mv命令是move的缩写，可以用来移动文件或者将文件改名（move (rename) files），是Linux系统下常用的命令，经常用来备份文件或者目录。</p>
-<ul>
-<li>1．命令格式：<br>  mv [选项] 源文件或目录 目标文件或目录<a id="more"></a></li>
-<li>2．命令功能：<br>视mv命令中第二个参数类型的不同（是目标文件还是目标目录），mv命令将文件重命名或将其移至一个新的目录中。当第二个参数类型是文件时，mv命令完成文件重命名，此时，源文件只能有一个（也可以是源目录名），它将所给的源文件或目录重命名为给定的目标文件名。当第二个参数是已存在的目录名称时，源文件或目录参数可以有多个，mv命令将各参数指定的源文件均移至目标目录中。在跨文件系统移动文件时，mv先拷贝，再将原有文件删除，而链至该文件的链接也将丢失。</li>
-<li>3．命令参数：<ul>
-<li>b ：若需覆盖文件，则覆盖前先行备份。 </li>
-<li>f ：force 强制的意思，如果目标文件已经存在，不会询问而直接覆盖；</li>
-<li>i ：若目标文件 (destination) 已经存在时，就会询问是否覆盖！</li>
-<li>u ：若目标文件已经存在，且 source 比较新，才会更新(update)</li>
-<li>t  ： –target-directory=DIRECTORY move all SOURCE arguments into DIRECTORY，即指定mv的目标目录，该选项适用于移动多个源文件到一个目录的情况，此时目标目录在前，源文件在后。</li>
+        <h2 id="1-文件权限"><a href="#1-文件权限" class="headerlink" title="1.文件权限"></a>1.文件权限</h2><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><ul>
+<li>文件拥有者：一般是文件的最高权限者，创建者。管理属于自己的个人隐私文件。对文件的最小管理单元。</li>
+<li>群组：处在同一群组的人对文件有相同的权限，对同一组别的用户进行权限管理。</li>
+<li>其他人的概念：除了文件拥有者和群组内的其他用户，一般是可以公开的权限，对所有人都可以的权限的管理单元。<blockquote>
+<p>在我们Linux系统当中，默认的情况下，所有的系统上的帐号与一般身份使用者，还有那个root的相关信息， 都是记录在/etc/passwd这个文件内的。至于个人的密码则是记录在/etc/shadow这个文件下。 此外，Linux所有的群组名称都纪录在/etc/group内！<br>这三个文件可以说是Linux系统里面帐号、密码、群组信息的集中地啰！ 不要随便删除这三个文件啊！</p>
+<a id="more"></a>
+<h4 id="文件属性"><a href="#文件属性" class="headerlink" title="文件属性"></a>文件属性</h4><ul>
+<li>r:可读</li>
+<li>w:可写</li>
+<li>x:可执行</li>
 </ul>
+</blockquote>
 </li>
 </ul>
-<p><a href="http://www.cnblogs.com/peida/archive/2012/10/27/2743022.html" target="_blank" rel="external">例子参照</a></p>
-<p>##心得</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/6212571-f43dd4623c3c2e66.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="linux_ls.png"></p>
+<h2 id="ls命令"><a href="#ls命令" class="headerlink" title="ls命令"></a>ls命令</h2><p>   ls命令是linux下最常用的命令。ls命令就是list的缩写，缺省下ls用来打印出当前目录的清单，如果ls指定其他目录，那么就会显示指定目录里的文件及文件夹清单。 </p>
 <ul>
-<li>就是一个移动文件/目录的一个命令。</li>
+<li>通过ls 命令不仅可以查看linux文件夹包含的文件。</li>
+<li>而且可以查看文件权限(包括目录、文件夹、文件权限)查看目录信息等等。</li>
+<li>ls 命令在日常的linux操作中用的很多!</li>
 </ul>
+<h4 id="1-命令格式："><a href="#1-命令格式：" class="headerlink" title="1.命令格式："></a>1.命令格式：</h4><p>ls [选项] [目录名]</p>
+<h4 id="2-命令功能："><a href="#2-命令功能：" class="headerlink" title="2.命令功能："></a>2.命令功能：</h4><p>列出目标目录中所有的子目录和文件。</p>
+<h4 id="3-常用参数："><a href="#3-常用参数：" class="headerlink" title="3.常用参数："></a>3.常用参数：</h4><ul>
+<li>-a, –all 列出目录下的所有文件，包括以 . 开头的隐含文件。</li>
+<li>-l 除了文件名之外，还将文件的权限、所有者、文件大小等信息详细列出来。</li>
+<li>-1 每行只列出一个文件</li>
+<li>–help 显示此帮助信息并离开</li>
+<li>–version 显示版本信息并离开</li>
+</ul>
+<p><a href="http://www.cnblogs.com/peida/archive/2012/10/23/2734829.html" target="_blank" rel="external">更多内容</a></p>
 
       
 
@@ -301,7 +316,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/06/26/Spring学习（二）：3个装配bean方式/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/06/26/spring/Spring学习（二）：3个装配bean方式/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -423,11 +438,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">java框架，Spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">java基本功</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -435,7 +446,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">java基本功</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -444,6 +455,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">java框架，Spring</a>
               </li>
             
             <div class="clearfix"></div>
