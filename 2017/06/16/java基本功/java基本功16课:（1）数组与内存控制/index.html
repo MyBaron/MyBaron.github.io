@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mybaron.github.io/MyBaron.github.io">
-  <title>Archives: 2017/6 | MyBraon</title>
+  <title>java基本功16课:（1）数组与内存控制 | MyBraon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="喜爱是我坚持的唯一动力">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MyBraon">
-<meta property="og:url" content="https://mybaron.github.io/MyBaron.github.io/archives/2017/06/index.html">
+  <meta name="description" content="1.数组初始化1.1 静态初次化：指定数组每个元素的值，由系统决定数值长度。 1String[] book=new String[]&amp;#123;&quot;java&quot;,&quot;c++&quot;,&quot;python&quot;&amp;#125;; 1.2动态初始化话：初始化时指定数组长度，系统自动分配初始值。1String[] book=new String[10];">
+<meta name="keywords" content="java,java基本功">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java基本功16课:（1）数组与内存控制">
+<meta property="og:url" content="https://mybaron.github.io/MyBaron.github.io/2017/06/16/java基本功/java基本功16课:（1）数组与内存控制/index.html">
 <meta property="og:site_name" content="MyBraon">
-<meta property="og:description" content="喜爱是我坚持的唯一动力">
+<meta property="og:description" content="1.数组初始化1.1 静态初次化：指定数组每个元素的值，由系统决定数值长度。 1String[] book=new String[]&amp;#123;&quot;java&quot;,&quot;c++&quot;,&quot;python&quot;&amp;#125;; 1.2动态初始化话：初始化时指定数组长度，系统自动分配初始值。1String[] book=new String[10];">
+<meta property="og:image" content="https://mybaron.github.io/assets/img/3.jpg">
+<meta property="og:updated_time" content="2017-06-22T18:25:07.238Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MyBraon">
-<meta name="twitter:description" content="喜爱是我坚持的唯一动力">
+<meta name="twitter:title" content="java基本功16课:（1）数组与内存控制">
+<meta name="twitter:description" content="1.数组初始化1.1 静态初次化：指定数组每个元素的值，由系统决定数值长度。 1String[] book=new String[]&amp;#123;&quot;java&quot;,&quot;c++&quot;,&quot;python&quot;&amp;#125;; 1.2动态初始化话：初始化时指定数组长度，系统自动分配初始值。1String[] book=new String[10];">
+<meta name="twitter:image" content="https://mybaron.github.io/assets/img/3.jpg">
   
     <link rel="alternative" href="/atom.xml" title="MyBraon" type="application/atom+xml">
   
@@ -152,74 +156,79 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-java基本功/java基本功16课:（1）数组与内存控制" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java基本功16课:（1）数组与内存控制
+    </h1>
+  
+
+        
+        <a href="/2017/06/16/java基本功/java基本功16课:（1）数组与内存控制/" class="archive-article-date">
+  	<time datetime="2017-06-16T09:00:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-16</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <img src="/assets/img/3.jpg" class="Baron" width="300" height="300">
+<h2 id="1-数组初始化"><a href="#1-数组初始化" class="headerlink" title="1.数组初始化"></a>1.数组初始化</h2><p>1.1 静态初次化：指定数组每个元素的值，由系统决定数值长度。<br> <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String[] book=<span class="keyword">new</span> String[]&#123;<span class="string">"java"</span>,<span class="string">"c++"</span>,<span class="string">"python"</span>&#125;;</div></pre></td></tr></table></figure></p>
+<p>1.2动态初始化话：初始化时指定数组长度，系统自动分配初始值。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">String[] book=<span class="keyword">new</span> String[<span class="number">10</span>];</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h2 id="2-数组变量和数据对象的区别"><a href="#2-数组变量和数据对象的区别" class="headerlink" title="2.数组变量和数据对象的区别"></a>2.数组变量和数据对象的区别</h2><p>2.1先思考以下的代码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">person[] per=<span class="keyword">new</span> person[<span class="number">2</span>];</div><div class="line"><span class="comment">//赋值</span></div><div class="line">per[<span class="number">0</span>]=<span class="keyword">new</span> person(<span class="string">"小明"</span>,<span class="number">12</span>);</div><div class="line">per[<span class="number">1</span>]=<span class="keyword">new</span> person(<span class="string">"小红"</span>,<span class="number">22</span>);</div><div class="line">person myperson=per[<span class="number">0</span>];</div><div class="line"><span class="comment">//输出myperson的值</span></div><div class="line">myperson.toString();  <span class="comment">//值是什么？</span></div><div class="line"><span class="comment">//改变赋值</span></div><div class="line">per[<span class="number">0</span>].setName(<span class="string">"张三"</span>);</div><div class="line"><span class="comment">//输出myperson的值</span></div><div class="line">myperson.toString();    <span class="comment">//值是什么？</span></div><div class="line">两次输出是否相等。</div></pre></td></tr></table></figure></p>
+<p>接下来再看一段代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//建立一个int[] 数组并初始化</span></div><div class="line"> <span class="keyword">int</span>[] array=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</div><div class="line"> <span class="keyword">int</span> k=array[<span class="number">2</span>];</div><div class="line"> <span class="keyword">int</span> o=<span class="number">30</span>;</div><div class="line"> array[<span class="number">4</span>]=o;</div><div class="line"> <span class="comment">//输出</span></div><div class="line"> System.out.println(<span class="string">"k="</span>+k+<span class="string">" o="</span>+o+<span class="string">" array="</span>+Arrays.toString(array));</div><div class="line"> <span class="comment">//改变赋值</span></div><div class="line"> array[<span class="number">2</span>]=<span class="number">20</span>;</div><div class="line"> System.out.println(<span class="string">"k="</span>+k); <span class="comment">//K的值是什么 改变了吗</span></div><div class="line"><span class="comment">//改变赋值</span></div><div class="line"> o=<span class="number">40</span>;</div><div class="line"> System.out.println(<span class="string">"array[4]="</span>+array[<span class="number">4</span>]); <span class="comment">//array[4]是什么 改变了吗</span></div></pre></td></tr></table></figure>
+<p>输出结果<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">name=小明  age=<span class="number">12</span></div><div class="line">name=张三  age=<span class="number">12</span></div><div class="line">k=<span class="number">3</span> o=<span class="number">30</span> array=[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">30</span>]</div><div class="line">k=<span class="number">3</span></div><div class="line">array[<span class="number">4</span>]=<span class="number">30</span></div></pre></td></tr></table></figure></p>
+<p>两段代码，刚好可以解析数组变量和数组对象的区别。</p>
+<ul>
+<li>数组变量：其实可以用变量来理解，例如int i 这个i就是个int变量而已。他就像是C语言的指针一样，当作是一个指针，其他本身并没有值。他是一个指引，指向存储这个值的地方的地址。</li>
+<li>数据对象：相当于new 一个空间。数据就是放在这个内存空间里面（堆内存）。<br>但是java程序无法直接处理这个内存空间。要通过数组变量来调用这个空间。</li>
+<li>这就解析了：<ul>
+<li>为什么per[0]的值改变，myperson的值也改变呢？那是因为，myperson跟per[0]所指向的内存空间是一样的，因此内存空间的值改变了，他们所显示的值也都变了。</li>
+<li>那为什么o的变量改变了，而array[4]的值没有变呢？他们内存空间不是一样的吗？这就涉及到基本变量的问题了，在方法声明的变量属于局部变量，保存在栈中，而数据元素则作为数据对象的一部分，保存在栈之中。所有他们的内存空间不一样。因此在赋值过程中，只是赋值，并没有改变他们的指引噢。</li>
+</ul>
+</li>
+</ul>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>  要理解好数组变量和数据对象的关系，联系上基本数据类型来理解。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpge">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/26/spring/Spring学习（二）：3个装配bean方式/" class="archive-article-date">
-  	<time datetime="2017-06-26T03:57:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/26/spring/Spring学习（二）：3个装配bean方式/">Spring学习（二）：3个装配bean方式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">java框架，Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/26/java基本功/java基本功16课:（8）异常捕捉的陷阱/" class="archive-article-date">
-  	<time datetime="2017-06-26T03:55:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/26/java基本功/java基本功16课:（8）异常捕捉的陷阱/">java基本功16课:（8）异常捕捉的陷阱</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -235,355 +244,101 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://mybaron.github.io/MyBaron.github.io/2017/06/16/java基本功/java基本功16课:（1）数组与内存控制/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/26/java基本功/java基本功16课:（7）面向对象的陷阱/" class="archive-article-date">
-  	<time datetime="2017-06-26T03:55:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-26</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/26/java基本功/java基本功16课:（7）面向对象的陷阱/">java基本功16课:（7）面向对象的陷阱</a>
-    </h1>
+    <a href="/2017/06/17/java基本功/java基本功16课:（2）对象与内存控制/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          java基本功16课:（2）对象与内存控制
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/16/java基本功/java基本功16课:（0）立flag/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java基本功16课：（0）立flag</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/24/java基本功/java基本功16课:（6）流程控制的陷阱/" class="archive-article-date">
-  	<time datetime="2017-06-23T17:10:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/24/java基本功/java基本功16课:（6）流程控制的陷阱/">java基本功16课:（6）流程控制的陷阱</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/24/随笔/近况/" class="archive-article-date">
-  	<time datetime="2017-06-23T16:39:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/24/随笔/近况/">近况</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/23/3步完成java反编译/" class="archive-article-date">
-  	<time datetime="2017-06-22T18:02:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/23/3步完成java反编译/">3步完成java反编译</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/23/java基本功/java基本功16课：（5）表达式中的陷阱/" class="archive-article-date">
-  	<time datetime="2017-06-22T17:40:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/23/java基本功/java基本功16课：（5）表达式中的陷阱/">java基本功16课:（5）表达式中的陷阱</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/21/java基本功/java基本功16课:（4）Java的内存回收/" class="archive-article-date">
-  	<time datetime="2017-06-21T13:32:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/21/java基本功/java基本功16课:（4）Java的内存回收/">java基本功16课:（4）Java的内存回收</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/20/java基本功/java基本功16课:（3）常见的java集合的实现细节/" class="archive-article-date">
-  	<time datetime="2017-06-20T14:07:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/20/java基本功/java基本功16课:（3）常见的java集合的实现细节/">java基本功16课:（3）常见的java集合的实现细节</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/17/java基本功/java基本功16课:（2）对象与内存控制/" class="archive-article-date">
-  	<time datetime="2017-06-16T17:56:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/17/java基本功/java基本功16课:（2）对象与内存控制/">java基本功16课:（2）对象与内存控制</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/06/page/2/">2</a><a class="extend next" rel="next" href="/archives/2017/06/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -614,8 +369,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
