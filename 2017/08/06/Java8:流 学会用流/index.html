@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mybaron.github.io/MyBaron.github.io">
-  <title>Archives | MyBraon</title>
+  <title>Java8:流 学会用流 | MyBraon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="喜爱是我坚持的唯一动力">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MyBraon">
-<meta property="og:url" content="https://mybaron.github.io/MyBaron.github.io/archives/index.html">
+  <meta name="description" content="目录：  什么是流 8个例子用上流 总结流 列表">
+<meta name="keywords" content="java,java8">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java8:流 学会用流">
+<meta property="og:url" content="https://mybaron.github.io/MyBaron.github.io/2017/08/06/Java8:流 学会用流/index.html">
 <meta property="og:site_name" content="MyBraon">
-<meta property="og:description" content="喜爱是我坚持的唯一动力">
+<meta property="og:description" content="目录：  什么是流 8个例子用上流 总结流 列表">
+<meta property="og:image" content="https://mybaron.github.io/assetsimg/4.jpg">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6212571-474d05157e7f5a12.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-08-06T15:11:06.260Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MyBraon">
-<meta name="twitter:description" content="喜爱是我坚持的唯一动力">
+<meta name="twitter:title" content="Java8:流 学会用流">
+<meta name="twitter:description" content="目录：  什么是流 8个例子用上流 总结流 列表">
+<meta name="twitter:image" content="https://mybaron.github.io/assetsimg/4.jpg">
   
     <link rel="alternative" href="/atom.xml" title="MyBraon" type="application/atom+xml">
   
@@ -152,36 +157,317 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-Java8:流 学会用流" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      Java8:流 学会用流
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/08/06/Java8:流 学会用流/" class="archive-article-date">
+
+        
+        <a href="/2017/08/06/Java8:流 学会用流/" class="archive-article-date">
   	<time datetime="2017-08-06T15:02:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-06</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/08/06/Java8:流 学会用流/">Java8:流 学会用流</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <img src="/assetsimg/4.jpg" class="Baron">
+<p>目录：</p>
+<ul>
+<li>什么是流</li>
+<li>8个例子用上流</li>
+<li>总结流</li>
+<li>列表<a id="more"></a>
+<h2 id="什么是流"><a href="#什么是流" class="headerlink" title="什么是流"></a>什么是流</h2><ol>
+<li>java.util.Stream的一个接口，简称流，可以处理数据更加方便。可以看成遍历数据集的高级迭代器。</li>
+<li>提供串行和并行两种模式进行汇聚操作，并发模式能够充分利用多核处理器的优势。</li>
+<li>Stream 可以并行化操作，迭代器只能命令式地、串行化操作。</li>
+<li>Stream 的另外一大特点是，数据源本身可以是无限的。<br>5.流的结构<br><img src="http://upload-images.jianshu.io/upload_images/6212571-474d05157e7f5a12.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="流的结构.png"></li>
+</ol>
+</li>
+</ul>
+<h2 id="8个例子用上流"><a href="#8个例子用上流" class="headerlink" title="8个例子用上流"></a>8个例子用上流</h2><ol>
+<li><p>先建立两个bean类（可跳过不看）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">class Trader&#123;</div><div class="line">   private  String name;</div><div class="line">    private  String city;</div><div class="line">...</div><div class="line">&#125;</div><div class="line">class Transaction&#123;</div><div class="line">   private Trader trader;</div><div class="line">    private int year;</div><div class="line">    private int value;</div><div class="line">...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>建立对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//建立对象</div><div class="line">     Trader xiaoming=new Trader(&quot;小明&quot;,&quot;广州&quot;);</div><div class="line">     Trader xiaohong=new Trader(&quot;小红&quot;,&quot;广州&quot;);</div><div class="line">     Trader xiaohei=new Trader(&quot;小黑&quot;,&quot;广州&quot;);</div><div class="line">     Trader xiaobai=new Trader(&quot;小白&quot;,&quot;肇庆&quot;);</div><div class="line"></div><div class="line">     //新建一个交易的集合</div><div class="line">     List&lt;Transaction&gt; transactions= Arrays.asList(</div><div class="line">             new Transaction(xiaoming,2017,300),</div><div class="line">             new Transaction(xiaohong,2016,1000),</div><div class="line">             new Transaction(xiaohong,2017,400),</div><div class="line">             new Transaction(xiaohei,2016,710),</div><div class="line">             new Transaction(xiaohei,2016,700),</div><div class="line">             new Transaction(xiaobai,2016,950)</div><div class="line">     );</div></pre></td></tr></table></figure>
+</li>
+<li><p>问题一，找出2016年发生的所有交易，并按交易额从低到高排列</p>
+</li>
+</ol>
+<ul>
+<li>重点：考擦筛选和排序</li>
+<li>知识点：<ul>
+<li><code>filter(Predicate):Stream</code> ：词筛选。Predicate 就是函数式接口，可用lamdba表达式</li>
+<li><code>sorted():Stream</code>:自定义比较</li>
+<li><code>collect(Collectores)</code>:终端,结束流</li>
+</ul>
+</li>
+<li>代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">list=transactions.stream()</div><div class="line">               .filter(s-&gt;s.getYear()==2016)</div><div class="line">               .sorted(Comparator.comparing(Transaction::getValue))</div><div class="line">               .collect(Collectors.toList());</div><div class="line">        System.out.println(list);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>问题二 交易员都在那些不同的城市工作</li>
+</ol>
+<ul>
+<li>重点：map的作用，可以转换类型。还有去重复</li>
+<li>知识点：<ul>
+<li><code>map(Function):Stream</code>：接收一个函数作参数，该函数会将每一个元素传入的值映射成另外的一个元素，按照1:1的比例。</li>
+<li><code>distinct():Stream</code>：会去除相同的元素，根据元素的hashCode和equals方法实现。</li>
+</ul>
+</li>
+<li>代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">List&lt;String&gt; mylist=transactions.stream()</div><div class="line">               .map(transaction -&gt; transaction.getTrader().getCity())</div><div class="line">               .distinct()</div><div class="line">               .collect(Collectors.toList());</div><div class="line">       System.out.println(mylist);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>问题三 查找所有来自于广州工作的交易员，并按名字排序</li>
+</ol>
+<ul>
+<li>重点：获取关键词，关键词排序</li>
+<li>代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">List&lt;Trader&gt; 广州 = transactions.stream()</div><div class="line">         .map(Transaction::getTrader)</div><div class="line">         .filter(t -&gt; t.getCity().equals(&quot;广州&quot;))</div><div class="line">         .sorted(Comparator.comparing(Trader::getName))</div><div class="line">         .distinct()</div><div class="line">         .collect(Collectors.toList());</div><div class="line"> System.out.println(广州);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>问题四 返回所有交易员的姓名字符串，按字母顺序排序</li>
+</ol>
+<ul>
+<li>重点： reduce的作用，可以把元素组合起来</li>
+<li>知识点：<code>reduce(BinaryOperator)Optional</code>：这个方法的主要作用是把 Stream 元素组合起来。它提供一个起始值（种子），然后依照运算规则（BinaryOperator），和前面 Stream 的第一个、第二个、第 n 个元素组合。</li>
+<li>代码：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">String collect = transactions.stream()</div><div class="line">                .map(t-&gt;t.getTrader().getName())</div><div class="line">                .distinct()</div><div class="line">                .sorted(Comparator.comparing(String::toString))</div><div class="line">                .reduce(&quot;&quot;,(n1,n2)-&gt;n1+n2);</div><div class="line">        System.out.println(collect);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>问题五 有没有交易员在肇庆工作,返回boolean</li>
+</ol>
+<ul>
+<li>知识点：anyMath的作用，判断至少有一个 存在 </li>
+<li>代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">boolean 肇庆 = transactions.stream()</div><div class="line">               .anyMatch(t -&gt; t.getTrader().getCity().equals(&quot;肇庆&quot;));</div><div class="line"></div><div class="line">       System.out.println(肇庆);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>问题六 打印生活在广州的交易员的所有交易额</li>
+</ol>
+<ul>
+<li>知识点：</li>
+<li><code>forEach(Consumer)</code>:遍历每一个元素</li>
+<li>代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">transactions.stream()</div><div class="line">                .filter(t-&gt;t.getTrader().getCity().equals(&quot;广州&quot;))</div><div class="line">                .map(Transaction::getValue)</div><div class="line">                .forEach(System.out::println);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ol>
+<li>问题七 所有交易中，最高的交易额是多少</li>
+</ol>
+<ul>
+<li>重点：reduce的运用 max</li>
+<li>代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Optional&lt;Integer&gt; reduce = transactions.stream()</div><div class="line">                .map(Transaction::getValue)</div><div class="line">                .reduce(Integer::max);</div><div class="line">        System.out.println(reduce.get());</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>10 . 问题八 找到交易额最小的交易</p>
+<ul>
+<li>重点：reduce的运用 min<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">Optional&lt;Integer&gt; reduce1 = transactions.stream()</div><div class="line">        .map(Transaction::getValue)</div><div class="line">        .reduce(Integer::min);</div><div class="line">System.out.println(reduce1.get());</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="流的总结"><a href="#流的总结" class="headerlink" title="流的总结"></a>流的总结</h2><h3 id="流的中间部分（流处理）"><a href="#流的中间部分（流处理）" class="headerlink" title="流的中间部分（流处理）"></a>流的中间部分（流处理）</h3><h4 id="筛选和切片"><a href="#筛选和切片" class="headerlink" title="筛选和切片"></a>筛选和切片</h4><ul>
+<li><code>filter(Predicate):Stream</code> ：词筛选。Predicate 就是函数式接口，可用lamdba表达式</li>
+<li><code>distinct():Stream</code>：会去除相同的元素，根据元素的hashCode和equals方法实现。</li>
+<li><code>limit(int):Stream</code>：返回一个不超过给定长度的流，用来获取前N个值。</li>
+<li><code>skip(int):Stream</code>：返回一个跳掉前面N个值的流，跟limit()方法互补。</li>
+<li><code>sorted():Stream</code>:自定义比较</li>
+</ul>
+<h4 id="映射"><a href="#映射" class="headerlink" title="映射"></a>映射</h4><ul>
+<li><code>map(Function):Stream</code>：接收一个函数作参数，该函数会将每一个元素传入的值映射成另外的一个元素，按照1:1的比例。</li>
+<li><code>flatMap(Function):Stream</code>：一对多的映射，<strong>层级结构扁平化</strong>，就是将最底层元素抽出来放到一起。</li>
+</ul>
+<h4 id="数值流"><a href="#数值流" class="headerlink" title="数值流"></a>数值流</h4><ul>
+<li>映射到数值流：mapToInt,mapToDouble和mapToLong.</li>
+<li>转换回对象流：.boxed()</li>
+<li>默认值OptionalInt：</li>
+<li>数值范围：range()和rangeClosed()，这两个方法都是第一个参数时接受起始值，第二个接受结束值。但range()不包含结束值。</li>
+</ul>
+<h4 id="构建流"><a href="#构建流" class="headerlink" title="构建流"></a>构建流</h4><ul>
+<li>由值创建流Stream.of()</li>
+<li>由数组创建流 Arrays.stream()</li>
+<li>由文件生成流 Files.lines</li>
+<li>由函数生成流：<ul>
+<li>Stream.iterate():iterate 跟 reduce 操作很像，接受一个种子值，和一个 UnaryOperator（例如 f）。然后种子值成为 Stream 的第一个元素，f(seed) 为第二个，f(f(seed)) 第三个，以此类推。</li>
+<li>Stream.generate():通过实现 Supplier 接口，你可以自己来控制流的生成。这种情形通常用于随机数、常量的 Stream，或者需要前后元素间维持着某种状态信息的 Stream。<strong>由于它是无限的，在管道中，必须利用 limit 之类的操作限制 Stream 大小。</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="终端（结束流的部分）"><a href="#终端（结束流的部分）" class="headerlink" title="终端（结束流的部分）"></a>终端（结束流的部分）</h3><h4 id="查找和匹配"><a href="#查找和匹配" class="headerlink" title="查找和匹配"></a>查找和匹配</h4><ul>
+<li><code>anyMath(Predicate)boolean</code>：检查谓词是否至少匹配一个元素</li>
+<li><code>allMatch(Predicate)boolean</code>：检查谓词是否匹配所有的元素</li>
+<li><code>noneMatch(boolean)Predicate</code>：确保流中没有任何元素与给定的谓词匹配</li>
+<li><code>findAny()Optional</code>：将返回当前流中的任意元素</li>
+<li><code>findFirst()Optional</code>：将返回第一个元素</li>
+<li><code>forEach(Consumer)</code>:遍历每一个元素</li>
+<li><code>Collect</code>:对流进行处理<blockquote>
+<p>Optional简介<br>Optional<t>类(java.util.Optional)是一个容器类，代表一个值存在或不存在。<br>常用方法：</t></p>
+<ul>
+<li>isPresent()：将在Optional包含值的时候返回true,否则返回flase。</li>
+<li>ifPresent(Consumer<t> block)：会在值存在的时候执行给定的代码块。</t></li>
+<li>T get()：会在值存在时返回值。</li>
+<li>T orElse(T other)会在值存在时返回值。</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h4 id="归约"><a href="#归约" class="headerlink" title="归约"></a>归约</h4><ul>
+<li><code>reduce(BinaryOperator)Optional</code>：这个方法的主要作用是把 Stream 元素组合起来。它提供一个起始值（种子），然后依照运算规则（BinaryOperator），和前面 Stream 的第一个、第二个、第 n 个元素组合。</li>
+</ul>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">操作</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">返回类型</th>
+<th style="text-align:center">使用的类型/函数式接口</th>
+<th style="text-align:center">函数描述符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">filter</td>
+<td style="text-align:center">中间</td>
+<td style="text-align:center">Stream<t></t></td>
+<td style="text-align:center">Predicate<t></t></td>
+<td style="text-align:center">T -&gt; boolean</td>
+</tr>
+<tr>
+<td style="text-align:center">distinct</td>
+<td style="text-align:center">中间</td>
+<td style="text-align:center">Stream<t></t></td>
+</tr>
+<tr>
+<td style="text-align:center">skip</td>
+<td style="text-align:center">中间</td>
+<td style="text-align:center">Stream<t></t></td>
+<td style="text-align:center">long    </td>
+</tr>
+<tr>
+<td style="text-align:center">limit</td>
+<td style="text-align:center">中间</td>
+<td style="text-align:center">Stream<t></t></td>
+<td style="text-align:center">long    </td>
+</tr>
+<tr>
+<td style="text-align:center">map</td>
+<td style="text-align:center">中间</td>
+<td style="text-align:center">Stream<r></r></td>
+<td style="text-align:center">Function<t,r></t,r></td>
+<td style="text-align:center">T -&gt; R</td>
+</tr>
+<tr>
+<td style="text-align:center">flatMap</td>
+<td style="text-align:center">中间</td>
+<td style="text-align:center">Stream<r></r></td>
+<td style="text-align:center">Function<t, stream<r="">&gt;</t,></td>
+<td style="text-align:center">T -&gt; Stream<r></r></td>
+</tr>
+<tr>
+<td style="text-align:center">sorted</td>
+<td style="text-align:center">中间</td>
+<td style="text-align:center">Stream<r></r></td>
+<td style="text-align:center">Comparator<t></t></td>
+<td style="text-align:center">(T,T) -&gt; int</td>
+</tr>
+<tr>
+<td style="text-align:center">anyMatch</td>
+<td style="text-align:center">终端</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">Predicate<t></t></td>
+<td style="text-align:center">T -&gt; boolean</td>
+</tr>
+<tr>
+<td style="text-align:center">noneMatch</td>
+<td style="text-align:center">终端</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">Predicate<t></t></td>
+<td style="text-align:center">T -&gt; boolean</td>
+</tr>
+<tr>
+<td style="text-align:center">allMatch</td>
+<td style="text-align:center">终端</td>
+<td style="text-align:center">boolean</td>
+<td style="text-align:center">Predicate<t></t></td>
+<td style="text-align:center">T -&gt; boolean</td>
+</tr>
+<tr>
+<td style="text-align:center">findAny</td>
+<td style="text-align:center">终端</td>
+<td style="text-align:center">Optional<t></t></td>
+</tr>
+<tr>
+<td style="text-align:center">findFirst</td>
+<td style="text-align:center">终端</td>
+<td style="text-align:center">Optional<t></t></td>
+</tr>
+<tr>
+<td style="text-align:center">forEach</td>
+<td style="text-align:center">终端</td>
+<td style="text-align:center">void</td>
+<td style="text-align:center">Consumer<t>    T -&gt; void</t></td>
+</tr>
+<tr>
+<td style="text-align:center">collect</td>
+<td style="text-align:center">终端</td>
+<td style="text-align:center">R</td>
+<td style="text-align:center">Collector<t,a,r></t,a,r></td>
+</tr>
+<tr>
+<td style="text-align:center">reduce</td>
+<td style="text-align:center">终端</td>
+<td style="text-align:center">Optional<t></t></td>
+<td style="text-align:center">BinaryOperator<t></t></td>
+<td style="text-align:center">(T,T) -&gt; T</td>
+</tr>
+<tr>
+<td style="text-align:center">count</td>
+<td style="text-align:center">终端</td>
+<td style="text-align:center">long</td>
+</tr>
+</tbody>
+</table>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpge">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,385 +483,92 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://mybaron.github.io/MyBaron.github.io/2017/08/06/Java8:流 学会用流/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/30/随笔/20天实习总结/" class="archive-article-date">
-  	<time datetime="2017-07-29T16:15:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-30</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/30/随笔/20天实习总结/">20天实习总结</a>
-    </h1>
+  
+    <a href="/2017/07/30/随笔/20天实习总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">20天实习总结</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/17/java/Java8：4个例子说明lamdba表达式/" class="archive-article-date">
-  	<time datetime="2017-07-17T15:50:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/17/java/Java8：4个例子说明lamdba表达式/">Java8：4个例子说明lamdba表达式</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">java8</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/07/10/随笔/人生第一天实习/" class="archive-article-date">
-  	<time datetime="2017-07-10T15:58:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/07/10/随笔/人生第一天实习/">人生第一天实习</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/26/spring/Spring学习（二）：3个装配bean方式/" class="archive-article-date">
-  	<time datetime="2017-06-26T03:57:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/26/spring/Spring学习（二）：3个装配bean方式/">Spring学习（二）：3个装配bean方式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">java框架，Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/26/java基本功/java基本功16课:（8）异常捕捉的陷阱/" class="archive-article-date">
-  	<time datetime="2017-06-26T03:55:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/26/java基本功/java基本功16课:（8）异常捕捉的陷阱/">java基本功16课:（8）异常捕捉的陷阱</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/26/java基本功/java基本功16课:（7）面向对象的陷阱/" class="archive-article-date">
-  	<time datetime="2017-06-26T03:55:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/26/java基本功/java基本功16课:（7）面向对象的陷阱/">java基本功16课:（7）面向对象的陷阱</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/24/java基本功/java基本功16课:（6）流程控制的陷阱/" class="archive-article-date">
-  	<time datetime="2017-06-23T17:10:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/24/java基本功/java基本功16课:（6）流程控制的陷阱/">java基本功16课:（6）流程控制的陷阱</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/24/随笔/近况/" class="archive-article-date">
-  	<time datetime="2017-06-23T16:39:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/24/随笔/近况/">近况</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/23/java/3步完成java反编译/" class="archive-article-date">
-  	<time datetime="2017-06-22T18:02:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/23/java/3步完成java反编译/">3步完成java反编译</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -606,8 +599,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
