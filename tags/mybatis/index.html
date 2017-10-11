@@ -6,35 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mybaron.github.io/MyBaron.github.io">
-  <title>JAVA:一个程序学会用webService | MyBraon</title>
+  <title>Tag: mybatis | MyBraon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本篇文章就通过写一个获取城市天气情况的程序，学会调用webService。webService分客户端和服务端的，本篇就写客户端的调用套路。服务篇的就下次再写。嘻嘻～求关注。本章内容：  介绍webService 程序webService的开始编写（只需要写4句就可以实现。） webService客户端的总结">
-<meta name="keywords" content="java,webService">
-<meta property="og:type" content="article">
-<meta property="og:title" content="JAVA:一个程序学会用webService">
-<meta property="og:url" content="https://mybaron.github.io/MyBaron.github.io/2017/08/16/java/JAVA:一个程序学会用webService/index.html">
+  <meta name="description" content="喜爱是我坚持的唯一动力">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MyBraon">
+<meta property="og:url" content="https://mybaron.github.io/MyBaron.github.io/tags/mybatis/index.html">
 <meta property="og:site_name" content="MyBraon">
-<meta property="og:description" content="本篇文章就通过写一个获取城市天气情况的程序，学会调用webService。webService分客户端和服务端的，本篇就写客户端的调用套路。服务篇的就下次再写。嘻嘻～求关注。本章内容：  介绍webService 程序webService的开始编写（只需要写4句就可以实现。） webService客户端的总结">
-<meta property="og:image" content="https://mybaron.github.io/assets/img/java/5.jpg">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6212571-980c064a5f29a8ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6212571-c2c58650fc5838fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6212571-20b49993b9188eb2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6212571-27de207afe2d7d71.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6212571-107d18154eff8161.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6212571-703b0c3dd99c4844.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6212571-247095ed7d944418.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6212571-304867eb4f43da62.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6212571-ce6f81dd4182b2d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6212571-64532a322790e51b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6212571-47933249572acd0a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6212571-2996ac1c7fc5bd63.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6212571-68a6e36baf5931ef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/6212571-87c1fb78881185a2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2017-08-16T16:07:07.527Z">
+<meta property="og:description" content="喜爱是我坚持的唯一动力">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA:一个程序学会用webService">
-<meta name="twitter:description" content="本篇文章就通过写一个获取城市天气情况的程序，学会调用webService。webService分客户端和服务端的，本篇就写客户端的调用套路。服务篇的就下次再写。嘻嘻～求关注。本章内容：  介绍webService 程序webService的开始编写（只需要写4句就可以实现。） webService客户端的总结">
-<meta name="twitter:image" content="https://mybaron.github.io/assets/img/java/5.jpg">
+<meta name="twitter:title" content="MyBraon">
+<meta name="twitter:description" content="喜爱是我坚持的唯一动力">
   
     <link rel="alternative" href="/atom.xml" title="MyBraon" type="application/atom+xml">
   
@@ -170,140 +152,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-java/JAVA:一个程序学会用webService" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      JAVA:一个程序学会用webService
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/10/11/java/mybatis分页插件PageHelper的使用/" class="archive-article-date">
+  	<time datetime="2017-10-11T01:44:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-11</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/10/11/java/mybatis分页插件PageHelper的使用/">mybatis分页插件PageHelper的使用</a>
     </h1>
   
 
-        
-        <a href="/2017/08/16/java/JAVA:一个程序学会用webService/" class="archive-article-date">
-  	<time datetime="2017-08-16T15:52:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-08-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <img src="/assets/img/java/5.jpg" class="Baron">
-<p>本篇文章就通过写一个获取城市天气情况的程序，学会调用webService。webService分客户端和服务端的，本篇就写客户端的调用套路。服务篇的就下次再写。嘻嘻～求关注。<br>本章内容：</p>
-<ul>
-<li>介绍webService</li>
-<li>程序webService的开始编写（只需要写4句就可以实现。）</li>
-<li>webService客户端的总结</li>
-</ul>
-<a id="more"></a>  
-<h2 id="webService的介绍"><a href="#webService的介绍" class="headerlink" title="webService的介绍"></a>webService的介绍</h2><ul>
-<li>Web service让你的网站可以使用其他网站的资源。</li>
-<li>webService 应用还是比较多的，例如：公司需要两个系统之间的数据需要有交互，那你不可能相互访问对方的数据库吧（这样一听就很笨）。所以可以用webService来进行数据的调用了。</li>
-<li>调用webservice服务的三种途径，Endpoint ,Disco ,WSDL。<strong>本次程序是用wsdl来调用。</strong></li>
-</ul>
-<h2 id="webService：获取城市天气情况的程序"><a href="#webService：获取城市天气情况的程序" class="headerlink" title="webService：获取城市天气情况的程序"></a>webService：获取城市天气情况的程序</h2><h3 id="开始注意："><a href="#开始注意：" class="headerlink" title="开始注意："></a>开始注意：</h3><ul>
-<li>编写一个获取城市天气情况的程序来感受一下webService的魅力。</li>
-<li>编程工具时idea，因为idea自带插件可以生成webService的代理类。</li>
-<li>整个程序过程：</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/6212571-980c064a5f29a8ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="过程"></p>
-<h3 id="开始编程"><a href="#开始编程" class="headerlink" title="开始编程"></a>开始编程</h3><ul>
-<li><a href="https://github.com/MyBaron/webServiceWeather/tree/master" target="_blank" rel="external">代码</a></li>
-</ul>
-<ol>
-<li><p>idea可以之间建立一个webService项目，如图，但这次我是建立一个普通项目来显示，因为一般二次开发的程序，需要用webService的时候，就跟在普通项目调用webService一样。<br><img src="http://upload-images.jianshu.io/upload_images/6212571-c2c58650fc5838fc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="深度截图_选择区域_20170816191553.png"></p>
-</li>
-<li><p>建立好一个普通项目。<br>建立好一个普通项目，需要导入webService所需要的jar包。如图：</p>
-</li>
-</ol>
-<p><img src="http://upload-images.jianshu.io/upload_images/6212571-20b49993b9188eb2.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="所需要的包.jpg"><br><img src="http://upload-images.jianshu.io/upload_images/6212571-27de207afe2d7d71.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="深度截图_选择区域_20170816191829.png"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/6212571-107d18154eff8161.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="深度截图_选择区域_20170816192319.png"></p>
-<ol>
-<li>利用idea自带的webService插件，生成代理类<br>步骤：右键项目名称的文件-&gt;最下面的选项WebServices<br><img src="http://upload-images.jianshu.io/upload_images/6212571-703b0c3dd99c4844.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li>
-</ol>
-<p><img src="http://upload-images.jianshu.io/upload_images/6212571-247095ed7d944418.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="深度截图_选择区域_20170816192458.png"></p>
-<ol>
-<li>选择后，就会弹出一个框，如图：<br>天气预告的<a href="http://www.webxml.com.cn/WebServices/WeatherWebService.asmx?wsdl" target="_blank" rel="external">webService地址</a></li>
-</ol>
-<p><img src="http://upload-images.jianshu.io/upload_images/6212571-304867eb4f43da62.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="深度截图_选择区域_20170816192744.png"></p>
-<p>生成后就会有几个类</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/6212571-ce6f81dd4182b2d1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="深度截图_选择区域_20170816192822.png"></p>
-<ol>
-<li>分析生成的代理类：<br>虽然生成了很多类，你不用慌，因为很多类都是逻辑代码，不需要我们去理解，调用。<strong>我们只需要掌握两个接口就可以了</strong></li>
-</ol>
-<ul>
-<li>XXXService接口：实现该接口，绑定了服务的名称，地址，端口等详细资料。（其实就是建立对象，让构造方法绑定一些必须要的信息。）</li>
-<li>XXXPortType接口：实现该接口，通过 SOAP 协议把操作请求发送到服务器，并把返回信息转化为 Java 对象。（其实就是发送参数过去，获取到数据的）</li>
-</ul>
-<p>6.编写代码，调用接口。</p>
-<ul>
-<li>因为接口不能实例化，所有肯定有实现类，所有在该代理类中，<code>WebtherWebServiceLocator</code>实现了XXXService接口。有趣的是，XXXservice接口的方法返回的类型时XXXPortType接口。所有你new一个对象处理，就已经把两个接口都用上了，接下来就直接传参数获取数据就可以了。</li>
-<li>不理解？看代码</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/6212571-64532a322790e51b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<ol>
-<li>传入参数，获取数据。</li>
-</ol>
-<ul>
-<li>刚刚分析了两个接口的作用，第一个接口是绑定端口等，第二个接口是我们的重点，里面的方法时用来调用传参和调用数据的。</li>
-<li><p><img src="http://upload-images.jianshu.io/upload_images/6212571-47933249572acd0a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-</li>
-<li><p>部分方法注释（代码已经放到我github）</p>
-</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/6212571-2996ac1c7fc5bd63.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<ul>
-<li>代码</li>
-</ul>
-<p><img src="http://upload-images.jianshu.io/upload_images/6212571-68a6e36baf5931ef.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<p><img src="http://upload-images.jianshu.io/upload_images/6212571-87c1fb78881185a2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
-<h2 id="webService总结"><a href="#webService总结" class="headerlink" title="webService总结"></a>webService总结</h2><ul>
-<li>wenService客户端代理类已经帮我们完成了99%的工作，我们只需要正确建立对象，用方法传参，获取数据就可以了。</li>
-</ul>
-<p>PS：</p>
-<ul>
-<li>代码量很少，很正常啊，从接口拿个数据需要写几百行代码才不正常。</li>
-<li>本篇只是讲解如何调用接口，webService还有服务端的，就是传送数据的，下一篇将会讲解如何使用。</li>
-<li>以后还会对webService深入了解，讲解soap协议到底时什么。。。。</li>
-<li>总之，关注我就对了。</li>
-<li>谢谢观看。谢谢评点。</li>
-</ul>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/img/weixin.jpge">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -313,98 +191,25 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">webService</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="http://s.jiathis.com/qrcode.php?url=https://mybaron.github.io/MyBaron.github.io/2017/08/16/java/JAVA:一个程序学会用webService/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
   
   
-    <a href="/2017/08/06/Java8:流 学会用流/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java8:流 学会用流</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-
-
+    
 
 
           </div>
@@ -435,9 +240,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
@@ -508,11 +313,19 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">java基本功</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color2">Docker</a>
               </li>
              
               <li class="article-tag-list-item">

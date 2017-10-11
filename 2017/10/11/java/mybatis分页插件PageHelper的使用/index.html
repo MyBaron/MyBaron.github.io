@@ -6,17 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://mybaron.github.io/MyBaron.github.io">
-  <title>Archives: 2017/6 | MyBraon</title>
+  <title>mybatis分页插件PageHelper的使用 | MyBraon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="喜爱是我坚持的唯一动力">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MyBraon">
-<meta property="og:url" content="https://mybaron.github.io/MyBaron.github.io/archives/2017/06/index.html">
+  <meta name="description" content="本篇文章主要写mybaits插件的使用过程，其中包括：  原理简单解析 mybatis配置（单独mybatis的配置和结合spring的配置） mybatisPageHelper使用(两个方法) 总结  代码完整 原理分析PageHelper就是只需要调用方法就可以进行对数据表提取数据的时候进行分页。主要特点：  不需要关心数据库是什么类型，支持Oracle,Mysql,MariaDB,SQLi">
+<meta name="keywords" content="java,mybatis">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mybatis分页插件PageHelper的使用">
+<meta property="og:url" content="https://mybaron.github.io/MyBaron.github.io/2017/10/11/java/mybatis分页插件PageHelper的使用/index.html">
 <meta property="og:site_name" content="MyBraon">
-<meta property="og:description" content="喜爱是我坚持的唯一动力">
+<meta property="og:description" content="本篇文章主要写mybaits插件的使用过程，其中包括：  原理简单解析 mybatis配置（单独mybatis的配置和结合spring的配置） mybatisPageHelper使用(两个方法) 总结  代码完整 原理分析PageHelper就是只需要调用方法就可以进行对数据表提取数据的时候进行分页。主要特点：  不需要关心数据库是什么类型，支持Oracle,Mysql,MariaDB,SQLi">
+<meta property="og:image" content="https://mybaron.github.io/assets/img/java/6.jpg">
+<meta property="og:image" content="https://mybaron.github.io/MyBaron.github.io/2017/10/11/java/mybatis分页插件PageHelper的使用/原理分析图.jpg">
+<meta property="og:updated_time" content="2017-10-11T01:52:24.374Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MyBraon">
-<meta name="twitter:description" content="喜爱是我坚持的唯一动力">
+<meta name="twitter:title" content="mybatis分页插件PageHelper的使用">
+<meta name="twitter:description" content="本篇文章主要写mybaits插件的使用过程，其中包括：  原理简单解析 mybatis配置（单独mybatis的配置和结合spring的配置） mybatisPageHelper使用(两个方法) 总结  代码完整 原理分析PageHelper就是只需要调用方法就可以进行对数据表提取数据的时候进行分页。主要特点：  不需要关心数据库是什么类型，支持Oracle,Mysql,MariaDB,SQLi">
+<meta name="twitter:image" content="https://mybaron.github.io/assets/img/java/6.jpg">
   
     <link rel="alternative" href="/atom.xml" title="MyBraon" type="application/atom+xml">
   
@@ -152,74 +157,108 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-java/mybatis分页插件PageHelper的使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      mybatis分页插件PageHelper的使用
+    </h1>
+  
+
+        
+        <a href="/2017/10/11/java/mybatis分页插件PageHelper的使用/" class="archive-article-date">
+  	<time datetime="2017-10-11T01:44:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-11</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <img src="/assets/img/java/6.jpg" class="Baron">
+<p>本篇文章主要写mybaits插件的使用过程，其中包括：</p>
+<ul>
+<li>原理简单解析</li>
+<li>mybatis配置（单独mybatis的配置和结合spring的配置）</li>
+<li>mybatisPageHelper使用(两个方法)</li>
+<li>总结</li>
+</ul>
+<p><a href="https://github.com/MyBaron/mybatisPageHelperPractice" target="_blank" rel="external">代码完整</a></p>
+<h2 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h2><p>PageHelper就是只需要调用方法就可以进行对数据表提取数据的时候进行分页。<br>主要特点：</p>
+<ul>
+<li>不需要关心数据库是什么类型，支持Oracle,Mysql,MariaDB,SQLite,Hsqldb,PostgreSQL六种数据库</li>
+<li>非常简单实用。</li>
+</ul>
+<p><img src="./原理分析图.jpg" alt=""></p>
+<h2 id="mybatis配置"><a href="#mybatis配置" class="headerlink" title="mybatis配置"></a>mybatis配置</h2><ol>
+<li>需要的jar包</li>
+</ol>
+<ul>
+<li>com.github.pagehelper</li>
+<li>org.mybatis</li>
+</ul>
+<ol>
+<li>mybatis配置</li>
+</ol>
+<ul>
+<li>需要注意的是：1.插件的版本问题，5.0以上版本用到的类是不一样的。2.插件的位置顺序问题。详情看下面的配置讲解</li>
+</ul>
+<ol>
+<li>单独mybatis的配置<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line">&lt;configuration&gt;</div><div class="line"></div><div class="line">    &lt;properties resource=&quot;db.properties&quot;/&gt;</div><div class="line"></div><div class="line"></div><div class="line">    &lt;!-- 配置分页插件 --&gt;</div><div class="line">    &lt;!--位置一定要正确！！！放的位置一定要正确--&gt;</div><div class="line">    &lt;!-- 顺序如下</div><div class="line">     properties?, settings?, </div><div class="line">    typeAliases?, typeHandlers?, </div><div class="line">    objectFactory?,objectWrapperFactory?, </div><div class="line">    plugins?, </div><div class="line">    environments?, databaseIdProvider?, mappers?</div><div class="line"></div><div class="line">    --&gt;</div><div class="line"></div><div class="line">    &lt;plugins&gt;</div><div class="line">        &lt;!--分页插件 5.0 版本和 4.2.x 实现完全不同,否则会报错--&gt;</div><div class="line">        &lt;!--5.0用的类是com.github.pagehelper.PageInterceptor--&gt;</div><div class="line">        &lt;!--5.0以下用的是com.github.pagehelper.PageHelpe--&gt;</div><div class="line">        &lt;plugin interceptor=&quot;com.github.pagehelper.PageInterceptor&quot;&gt;</div><div class="line">          &lt;!--</div><div class="line">            这里是可以使用参数的 填写参数形式是&lt;property name=&quot;param1&quot; value=&quot;value1&quot;/&gt;</div><div class="line">          这里我不用参数，默认就可以了，有需求可以填上参数。可以参考网上的文档</div><div class="line">          </div><div class="line">            --&gt;</div><div class="line">        &lt;/plugin&gt;</div><div class="line">    &lt;/plugins&gt;</div><div class="line">    &lt;environments default=&quot;development&quot;&gt;</div><div class="line">        &lt;environment id=&quot;development&quot;&gt;</div><div class="line">            &lt;transactionManager type=&quot;JDBC&quot;/&gt;</div><div class="line">            &lt;dataSource type=&quot;POOLED&quot;&gt;</div><div class="line">                &lt;property name=&quot;driver&quot; value=&quot;$&#123;driver&#125;&quot;/&gt;</div><div class="line">                &lt;property name=&quot;url&quot; value=&quot;$&#123;url&#125;&quot;/&gt;</div><div class="line">                &lt;property name=&quot;username&quot; value=&quot;$&#123;username&#125;&quot;/&gt;</div><div class="line">                &lt;property name=&quot;password&quot; value=&quot;$&#123;password&#125;&quot;/&gt;</div><div class="line">            &lt;/dataSource&gt;</div><div class="line">        &lt;/environment&gt;</div><div class="line">    &lt;/environments&gt;</div><div class="line">    &lt;mappers&gt;</div><div class="line">        &lt;mapper resource=&quot;mapper/personDao.xml&quot;/&gt;</div><div class="line">    &lt;/mappers&gt;</div><div class="line">&lt;/configuration&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>4.结合spring的配置文件，只需要在mybatis配置文件加入以下代码就可以<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;bean id=&quot;sqlSessionFactory&quot; class=&quot;org.mybatis.spring.SqlSessionFactoryBean&quot;&gt;</div><div class="line">  &lt;!-- 注意其他配置 --&gt;</div><div class="line">  &lt;property name=&quot;plugins&quot;&gt;</div><div class="line">    &lt;array&gt;</div><div class="line">      &lt;bean class=&quot;com.github.pagehelper.PageInterceptor&quot;&gt;</div><div class="line">        &lt;property name=&quot;properties&quot;&gt;</div><div class="line">          &lt;!--使用下面的方式配置参数，一行配置一个 --&gt;</div><div class="line">          &lt;value&gt;</div><div class="line">            params=value1</div><div class="line">          &lt;/value&gt;</div><div class="line">        &lt;/property&gt;</div><div class="line">      &lt;/bean&gt;</div><div class="line">    &lt;/array&gt;</div><div class="line">  &lt;/property&gt;</div><div class="line">&lt;/bean&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="mybatisPageHelper使用-两个方法"><a href="#mybatisPageHelper使用-两个方法" class="headerlink" title="mybatisPageHelper使用(两个方法)"></a>mybatisPageHelper使用(两个方法)</h2><ul>
+<li>代码很简单，主要就3个类。完整代码已经放到<a href="https://github.com/MyBaron/mybatisPageHelperPractice" target="_blank" rel="external">github</a><ul>
+<li>personDao  Dao类</li>
+<li>Person    实体类</li>
+<li>test   代码测试类</li>
+</ul>
+</li>
+<li>test层代码<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">//加载mybaits文件</div><div class="line">   private SqlSession getPersonDao(String resource)&#123;</div><div class="line">       InputStream inputStream= null;</div><div class="line">       try &#123;</div><div class="line">           inputStream = Resources.getResourceAsStream(resource);</div><div class="line">       &#125; catch (IOException e) &#123;</div><div class="line">           e.printStackTrace();</div><div class="line">       &#125;</div><div class="line">       SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);</div><div class="line">       SqlSession sqlSession = sqlSessionFactory.openSession();</div><div class="line">       return sqlSession;</div><div class="line">   &#125;</div><div class="line"></div><div class="line"></div><div class="line">    @Test</div><div class="line">   public void getPerson()&#123;</div><div class="line">       //首先获取全部数据</div><div class="line">       SqlSession sqlSession=getPersonDao(&quot;mybaits-config.xml&quot;);</div><div class="line">       personDao mapper = sqlSession.getMapper(personDao.class);</div><div class="line"></div><div class="line">       //方法一：</div><div class="line">       //取第1页的数据，第一页显示10行</div><div class="line">       PageHelper.startPage(1, 10);</div><div class="line">       //得到的peopleList 类型是Page&lt;E&gt;,Page&lt;E&gt;类型里面包含了count, pageNum, pageSize,</div><div class="line">       // startRow, endRow, total, pages, reasonable, pageSizeZero 变量</div><div class="line">       List&lt;Person&gt; peopleList=mapper.getData();</div><div class="line">       //可以直接输出看看有什么变量</div><div class="line">       System.out.println(peopleList.toString());</div><div class="line">       //如果需要使用Page&lt;E&gt; 的方法获取属性 需要方法一是：强制转换，方法二是 pageInfo。</div><div class="line">       //方法一:</div><div class="line">       System.out.println(&quot;获取一下总数 &quot;+((Page)peopleList).getTotal());</div><div class="line">       System.out.println(&quot;总页数有 &quot;+((Page)peopleList).getPages());</div><div class="line">       System.out.println(peopleList.get(1));</div><div class="line">       //方法二：</div><div class="line">       //pageInfo对结果进行封装</div><div class="line">       PageInfo pageInfo=new PageInfo(peopleList);</div><div class="line">       System.out.println(&quot;获取一下总数 &quot;+pageInfo.getTotal());</div><div class="line"></div><div class="line">       //遍历数据</div><div class="line">       for (Person aPeopleList : peopleList) &#123;</div><div class="line">           System.out.println(aPeopleList);</div><div class="line">       &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>输出内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Page&#123;count=true, pageNum=1, pageSize=10, startRow=0, endRow=10, total=300, pages=30, reasonable=false, pageSizeZero=false&#125;</div><div class="line">获取一下总数 300</div><div class="line">总页数有 30</div><div class="line">Person&#123;id=2, person_name=&apos;小明2&apos;, hobby=&apos;篮球&apos;, age=1&#125;</div><div class="line">获取一下总数 300</div><div class="line">Person&#123;id=1, person_name=&apos;小明1&apos;, hobby=&apos;篮球&apos;, age=1&#125;</div><div class="line">Person&#123;id=2, person_name=&apos;小明2&apos;, hobby=&apos;篮球&apos;, age=1&#125;</div><div class="line">Person&#123;id=4, person_name=&apos;小明3&apos;, hobby=&apos;篮球&apos;, age=1&#125;</div><div class="line">Person&#123;id=5, person_name=&apos;小明4&apos;, hobby=&apos;篮球&apos;, age=1&#125;</div><div class="line">Person&#123;id=6, person_name=&apos;小明5&apos;, hobby=&apos;篮球&apos;, age=1&#125;</div><div class="line">Person&#123;id=7, person_name=&apos;小明6&apos;, hobby=&apos;篮球&apos;, age=1&#125;</div><div class="line">Person&#123;id=8, person_name=&apos;小明7&apos;, hobby=&apos;篮球&apos;, age=1&#125;</div><div class="line">Person&#123;id=9, person_name=&apos;小明8&apos;, hobby=&apos;篮球&apos;, age=1&#125;</div><div class="line">Person&#123;id=10, person_name=&apos;小明9&apos;, hobby=&apos;篮球&apos;, age=1&#125;</div><div class="line">Person&#123;id=11, person_name=&apos;小明10&apos;, hobby=&apos;篮球&apos;, age=1&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>1.可以看出来代码量很少，是非常轻量级的，非常好用。只是配置的过程中可能会浪费一点时间，不过配置完后用起来就很舒服了。</p>
+<ol>
+<li>主要配置文件的信息，这些是我掉过得坑。插件的位置以及版本需要注意好！！！</li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.jpge">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/26/spring/Spring学习（二）：3个装配bean方式/" class="archive-article-date">
-  	<time datetime="2017-06-26T03:57:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/26/spring/Spring学习（二）：3个装配bean方式/">Spring学习（二）：3个装配bean方式</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">java框架，Spring</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/26/java基本功/java基本功16课:（8）异常捕捉的陷阱/" class="archive-article-date">
-  	<time datetime="2017-06-26T03:55:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/26/java基本功/java基本功16课:（8）异常捕捉的陷阱/">java基本功16课:（8）异常捕捉的陷阱</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -229,361 +268,107 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://mybaron.github.io/MyBaron.github.io/2017/10/11/java/mybatis分页插件PageHelper的使用/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/26/java基本功/java基本功16课:（7）面向对象的陷阱/" class="archive-article-date">
-  	<time datetime="2017-06-26T03:55:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-26</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/26/java基本功/java基本功16课:（7）面向对象的陷阱/">java基本功16课:（7）面向对象的陷阱</a>
-    </h1>
+    <a href="/2017/10/11/java/JAVA:一个程序学会用webService/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          JAVA:一个程序学会用webService
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/08/06/Java8:流 学会用流/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java8:流 学会用流</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/24/java基本功/java基本功16课:（6）流程控制的陷阱/" class="archive-article-date">
-  	<time datetime="2017-06-23T17:10:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/24/java基本功/java基本功16课:（6）流程控制的陷阱/">java基本功16课:（6）流程控制的陷阱</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/24/随笔/近况/" class="archive-article-date">
-  	<time datetime="2017-06-23T16:39:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/24/随笔/近况/">近况</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/23/java/3步完成java反编译/" class="archive-article-date">
-  	<time datetime="2017-06-22T18:02:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/23/java/3步完成java反编译/">3步完成java反编译</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/23/java基本功/java基本功16课：（5）表达式中的陷阱/" class="archive-article-date">
-  	<time datetime="2017-06-22T17:40:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/23/java基本功/java基本功16课：（5）表达式中的陷阱/">java基本功16课:（5）表达式中的陷阱</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/21/java基本功/java基本功16课:（4）Java的内存回收/" class="archive-article-date">
-  	<time datetime="2017-06-21T13:32:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/21/java基本功/java基本功16课:（4）Java的内存回收/">java基本功16课:（4）Java的内存回收</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/20/java基本功/java基本功16课:（3）常见的java集合的实现细节/" class="archive-article-date">
-  	<time datetime="2017-06-20T14:07:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-20</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/20/java基本功/java基本功16课:（3）常见的java集合的实现细节/">java基本功16课:（3）常见的java集合的实现细节</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/17/java基本功/java基本功16课:（2）对象与内存控制/" class="archive-article-date">
-  	<time datetime="2017-06-16T17:56:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-17</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/17/java基本功/java基本功16课:（2）对象与内存控制/">java基本功16课:（2）对象与内存控制</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">java基本功</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2017/06/page/2/">2</a><a class="extend next" rel="next" href="/archives/2017/06/page/2/">Next &raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -614,8 +399,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
